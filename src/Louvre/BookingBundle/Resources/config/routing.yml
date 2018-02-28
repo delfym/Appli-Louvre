@@ -1,0 +1,13 @@
+
+louvre_booking_home:
+    path:      /{page}
+    defaults:
+        _controller: LouvreBookingBundle:Booking:index
+        page:        1
+    requirements:
+        page: \d*
+
+louvre_booking_page:
+    path:     /booking
+    defaults:
+        _controller: LouvreBookingBundle:Booking:booking

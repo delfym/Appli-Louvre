@@ -1,0 +1,56 @@
+
+
+{% extends "LouvreBookingBundle::layout.html.twig" %}
+
+
+
+{% block body %}
+
+    <section class="mt-5">
+        <h5>Tarifs des visites</h5>
+
+        <table class="table table-stripe">
+            <tbody>
+                <tr>
+                    <th scope="row">Type de billet</th>
+                        <td>Tarif journée</td>
+                        <td>Tarif demi-journée</td>
+                </tr>
+                <tr>
+                    <th scope="row">Plein tarif</th>
+                        <td>16 €</td>
+                        <td>8 €</td>
+                </tr>
+                <tr>
+                    <th scope="row">Tarif senior (à partir de 60 ans)</th>
+                    <td>12 €</td>
+                    <td>6 €</td>
+                </tr>
+                <tr>
+                    <th scope="row">Tarif enfant de 4 à 12 ans</th>
+                    <td>8 €</td>
+                    <td>4 €</td>
+                </tr>
+                <tr>
+                    <th scope="row">Tarif enfant de moins de 4 ans</th>
+                    <td>gratuit</td>
+                    <td>gratuit</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section class="jumbotron d-flex flex-column justify-content-center mb-4">
+        <h5>Horaires d'ouverture</h5>
+
+        <p>Le musée est ouvert tous les jours, sauf le mardi <br/>
+            Fermé les 1er mai, 1er novembre, et 25 décembre
+        </p>
+    </section>
+
+    <section class="flex-row d-flex justify-content-center mb-5">
+        <h5 class="pr-4">Réserver vos billets</h5>
+        <button class="btn-md">Réserver dès maintenant</button>
+    </section>
+
+{% endblock %}

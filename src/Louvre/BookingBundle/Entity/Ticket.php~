@@ -1,0 +1,133 @@
+<?php
+
+namespace Louvre\BookingBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Ticket
+ *
+ * @ORM\Table(name="ticket")
+ * @ORM\Entity(repositoryClass="Louvre\BookingBundle\Repository\TicketRepository")
+ */
+class Ticket
+{
+    /**
+     * @ORM\OneToOne(targetEntity="Louvre\BookingBundle\Entity\Visitor", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $visitor;
+    
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="price", type="decimal", precision=4, scale=2)
+     */
+    private $price;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="ticketDate", type="datetime")
+     */
+    private $ticketDate;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ticketType", type="string")
+     */
+    private $ticketType;
+
+
+    /**
+     * Get id.
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set price.
+     *
+     * @param string $price
+     *
+     * @return Ticket
+     */
+    public function setPrice($price)
+    {
+        $this->price = $price;
+
+        return $this;
+    }
+
+    /**
+     * Get price.
+     *
+     * @return string
+     */
+    public function getPrice()
+    {
+        return $this->price;
+    }
+
+    /**
+     * Set ticketDate.
+     *
+     * @param \DateTime $ticketDate
+     *
+     * @return Ticket
+     */
+    public function setTicketDate($ticketDate)
+    {
+        $this->ticketDate = $ticketDate;
+
+        return $this;
+    }
+
+    /**
+     * Get ticketDate.
+     *
+     * @return \DateTime
+     */
+    public function getTicketDate()
+    {
+        return $this->ticketDate;
+    }
+
+    /**
+     * Set ticketType.
+     *
+     * @param string $ticketType
+     *
+     * @return Ticket
+     */
+    public function setTicketType($ticketType)
+    {
+        $this->ticketType = $ticketType;
+
+        return $this;
+    }
+
+    /**
+     * Get ticketType.
+     *
+     * @return string
+     */
+    public function getTicketType()
+    {
+        return $this->ticketType;
+    }
+}

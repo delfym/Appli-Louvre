@@ -1,0 +1,3 @@
+louvre_booking:
+    resource: "@LouvreBookingBundle/Resources/config/routing.yml"
+    prefix:   /louvre_booking
