@@ -160,4 +160,28 @@ class Ticket
     {
         return $this->visitor;
     }
+
+    /**
+     * Set orderOfTickets.
+     *
+     * @param \Louvre\BookingBundle\Entity\OrderOfTickets $orderOfTickets
+     *
+     * @return Ticket
+     */
+    public function setOrderOfTickets(\Louvre\BookingBundle\Entity\OrderOfTickets $orderOfTickets)
+    {
+        $this->orderOfTickets = $orderOfTickets;
+
+        return $this;
+    }
+
+    /**
+     * Get orderOfTickets.
+     *
+     * @return \Louvre\BookingBundle\Entity\OrderOfTickets
+     */
+    public function getOrderOfTickets()
+    {
+        return $this->orderOfTickets;
+    }
 }
