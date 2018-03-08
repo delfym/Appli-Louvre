@@ -11,17 +11,14 @@ namespace Louvre\BookingBundle\Controller;
 use Louvre\BookingBundle\Entity\OrderOfTickets;
 use Louvre\BookingBundle\Entity\Ticket;
 use Louvre\BookingBundle\Entity\Visitor;
+use Louvre\BookingBundle\Form\TicketType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class BookingController extends Controller {
 
@@ -33,23 +30,25 @@ class BookingController extends Controller {
         return new Response($content);
     }
 
-    public function bookingAction() {
+    public function bookingAction(Request $request) {
         /*$content = $this->get('templating')
                         ->render('LouvreBookingBundle:Booking:booking.html.twig'
             );
         return new Response($content); */
         $ticket = new Ticket();
-        $orderOfTickets = new OrderOfTickets();
-        $visitor = new Visitor();
+     //   $visitor = new Visitor();
 
-        $formBuilder = $this->get('form.factory')
-            ->createBuilder(FormType::class, $ticket);
-        $formBuilder
-            ->add('ticketDate', DateType::class)
-            ->add('ticketType', ChoiceType::class)
-            ->add('save',       SubmitType::class);
+        $form = $this->get('form.factory')->create(TicketType::class, $ticket);
 
-        $form = $formBuilder->getForm();
+        if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($ticket);
+            $em->flush();
+
+            $request->getSession()->getFlashBag()->add('notice', 'Billet bien enregistrée.');
+
+            return $this->redirectToRoute('oc_platform_view', array('id' => $ticket->getId()));
+        }
 
         return $this->render('LouvreBookingBundle:Booking:booking.html.twig', array(
             'form' => $form->createView(),

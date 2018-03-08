@@ -1,6 +1,9 @@
 
 
 {% extends "LouvreBookingBundle::layout.html.twig" %}
+{%  block javascripts %}
+    {{ parent() }}
+{% endblock %}
 
 
 
@@ -13,24 +16,6 @@
         </div>
     </section>
 
-    <form class="form-group justify-content-start" method="post">
-            <label for="birthDate">Votre date de naissance</label>
-            <select name="birthDate" id="birthDate">
-                <option value="birthday">jour</option><option value="monthDay">mois</option><option value="birthYear">year</option>
-            </select>
-        <label>Nom
-            <input class="form-control" name="VisitorName"/>
-        </label>
-        <label>Prénom
-            <input class="form-control" name="VisitorFirstName"/>
-        </label>
-        <label>Mail
-            <input class="form-control" name="VisitorEmail"/>
-        </label>
-        <label>Pays
-            <input class="form-control" name="VisitorCountry"/>
-        </label>
-    </form>
 
     <section class="d-flex flex-column justify-content-center mb-4">
 
@@ -40,3 +25,4 @@
     </section>
 
 {% endblock %}
+

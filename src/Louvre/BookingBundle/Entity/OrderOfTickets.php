@@ -13,6 +13,12 @@ use Doctrine\ORM\Mapping as ORM;
 class OrderOfTickets
 {
     /**
+     * @ORM\OneToOne(targetEntity="Louvre\BookingBundle\Entity\Visitor", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $visitor;
+
+    /**
      * @var int
      *
      * @ORM\Column(name="id", type="integer")
@@ -125,5 +131,29 @@ class OrderOfTickets
        // $this->amount = 0;
       //  foreach (($this->getTicket))
         return $this->amount;
+    }
+
+    /**
+     * Set visitor.
+     *
+     * @param \Louvre\BookingBundle\Entity\Visitor $visitor
+     *
+     * @return OrderOfTickets
+     */
+    public function setVisitor(Visitor $visitor)
+    {
+        $this->visitor = $visitor;
+
+        return $this;
+    }
+
+    /**
+     * Get visitor.
+     *
+     * @return \Louvre\BookingBundle\Entity\Visitor
+     */
+    public function getVisitor()
+    {
+        return $this->visitor;
     }
 }
