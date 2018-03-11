@@ -1,68 +1,94 @@
 
 
 
-<div class="well form-group border">
-    {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+<div class="well form-group">
+   {# {{ form(form) }} #}
+
+
+    {{ form_start(form, {'attr': {'class': 'form-horizontal form-group-row'}}) }}
 
     {# Les erreurs générales du formulaire. #}
     {{ form_errors(form) }}
 
-    {# Génération manuelle et éclatée : #}
-    <div class="form-inline mt-5 mb-5">
+
+    <div class="mb-5">
+        {# Génération manuelle et éclatée : #}
+        <div class="form-inline mt-5 mb-5">
+
+        {# Idem pour un autre champ. #}
+            {{ form_label(form.ticketsQuantity, "Nombre de billets souhaités", {'label_attr': {'class': 'ml-3 pr-2 '}}) }}
+            {{ form_errors(form.ticketsQuantity) }}
+            {{ form_widget(form.ticketsQuantity) }}
+
+        </div>
+
+
+        {# Génération manuelle et éclatée : #}
+        <div class="mt-5 mb-5">
+
+            {# Idem pour un autre champ. #}
+            {{ form_errors(form.tickets) }}
+            {{ form_widget(form.tickets, {'attr': {'class': 'border'}}) }}
+
+        </div>
+
+
+        {# On charge la bibliothèque jQuery. Ici, je la prends depuis le CDN google
+           mais si vous l'avez en local, changez simplement l'adresse. #}
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+            <script src="{{ asset('Public/js/addTickets.js') }}"></script>
+
+
+    </div>
+
+    <div class="border">
+        <h5 class="mb-4 mt-3">Données de facturation</h5>
+
+
+        {# Idem pour un autre champ. #}
+        <div class="form-inline mb-3">
+            {{ form_label(form.visitor.name, "Votre nom",
+                {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+            {{ form_errors(form.visitor.name) }}
+            {{ form_widget(form.visitor.name,
+                {'attr': {'class': 'form-control'}}) }}
+
+        </div>
+
+        {# Idem pour un autre champ. #}
+        <div class="form-inline mb-3">
+            {{ form_label(form.visitor.firstName, "Votre prénom",
+                {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+            {{ form_errors(form.visitor.firstName) }}
+            {{ form_widget(form.visitor.firstName,
+                {'attr': {'class': 'form-control'}}) }}
+        </div>
 
         {# Génération du label. #}
-        {{ form_label(form.ticketDate, "Date du ticket",{'label_attr': {'class': 'ml-3 pr-2 control-label'}}) }}
-        {{ form_widget(form.ticketDate) }}
-        {# Affichage des erreurs pour ce champ précis. #}
-        {{ form_errors(form.ticketDate) }}
+        <div class="form-inline mb-3">
+            {{ form_label(form.visitor.birthDate, "Votre date de naissance",
+                {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+            {{ form_widget(form.visitor.birthDate) }}
+            {# Affichage des erreurs pour ce champ précis. #}
 
-    {# Idem pour un autre champ. #}
-        {{ form_label(form.ticketType, "Type de billet", {'label_attr': {'class': 'ml-3 pr-2 control-label'}}) }}
-        {{ form_errors(form.ticketType) }}
-        {{ form_widget(form.ticketType, {'attr': {'class': 'form-control'}}) }}
+            {{ form_errors(form.visitor.birthDate) }}
 
-    </div>
-
-
-    {# Idem pour un autre champ. #}
-    <div class="form-inline mb-3 border">
-        {{ form_label(form.visitor.name, "Votre nom", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
-        {{ form_errors(form.visitor.name) }}
-        <div class="col-sm-10">
-            {{ form_widget(form.visitor.name, {'attr': {'class': 'form-control'}}) }}
         </div>
-    </div>
 
-    {# Idem pour un autre champ. #}
-    <div class="form-inline mb-3">
-        {{ form_label(form.visitor.firstName, "Votre prénom", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
-        {{ form_errors(form.visitor.firstName) }}
-        <div class="col-sm-10">
-            {{ form_widget(form.visitor.firstName, {'attr': {'class': 'form-control'}}) }}
-        </div>
-    </div>
+        {# Idem pour un autre champ. #}
+        <div class="form-inline mb-3">
+            {{ form_label(form.visitor.email, "E-mail",
+                {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+            {{ form_errors(form.visitor.email) }}
 
-    {# Génération du label. #}
-    <div class="form-inline mb-3">
-    {{ form_label(form.visitor.birthDate, "Votre date de naissance",{'label_attr': {'class': 'col-sm-4 mr-4 control-label'}}) }}
-    {{ form_widget(form.visitor.birthDate) }}
-    {# Affichage des erreurs pour ce champ précis. #}
-    {{ form_errors(form.visitor.birthDate) }}
-    </div>
-
-    {# Idem pour un autre champ. #}
-    <div class="form-inline mb-3">
-        {{ form_label(form.visitor.email, "E-mail", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
-        {{ form_errors(form.visitor.email) }}
-        <div class="col-sm-10">
             {{ form_widget(form.visitor.email, {'attr': {'class': 'form-control'}}) }}
+
         </div>
     </div>
-
 
     {# Pour le bouton, pas de label ni d'erreur, on affiche juste le widget #}
     {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary m-2'}}) }}
 
-{# {{ form(form) }} #}
 
 </div>

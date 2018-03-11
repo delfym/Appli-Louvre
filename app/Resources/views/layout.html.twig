@@ -20,8 +20,8 @@
 
         <link rel="stylesheet" href="{{ asset('bootstrap.css') }}">
         <!-- Custom styles for this template -->
-        <link rel="stylesheet" href="{{ asset('Public/cover.css') }}">
-        {% endblock %}
+        <!--link rel="stylesheet" href="{# {{ asset('Public/css/cover.css') }}#}"-->
+    {% endblock %}
 
 </head>
 
@@ -30,7 +30,7 @@
         <div role="main" class="flex-row cover-container d-flex h-100 p-3 mx-auto flex-column">
 
             <h1 class="cover-heading">Bienvenue sur le site de réservation du Louvre!!!</h1>
-            <img class="img-fluid" src= "{{ asset('Public/louvre-header.jpg') }}" alt="Photo du musée du Louvre">
+            <img class="img-fluid" src= "{{ asset('Public/images/louvre-header.jpg') }}" alt="Photo du musée du Louvre">
 
             <nav class="nav nav-masthead justify-content-center">
                     <a class="nav-link" href="{{ path('louvre_booking_home') }}">Accueil</a>
@@ -45,10 +45,10 @@
         {% endblock %}
     </section>
 
-    <footer class="mastfoot mt-5">
-            <p>Projet 4 sous Symfony, by @delfy.</p>
-    </footer>
 
+    <footer class="mastfoot mt-5">
+        <p>Projet 4 sous Symfony, by @delfy.</p>
+    </footer>
 
 
 <!-- Bootstrap core JavaScript
@@ -59,8 +59,8 @@
     <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
 <!-- version cdn datepicker -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
-     <!--script-- src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/locales/bootstrap-datepicker.fr.min.js"></script-->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.1/js/locales/bootstrap-datepicker.fr.js"></script>
+     <!--script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/locales/bootstrap-datepicker.fr.min.js"></script-->
+<!--script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.1/js/locales/bootstrap-datepicker.fr.js"></script-->
     <script src="{{ asset('Public/myDatepicker.js') }}"></script>
 
 </body>

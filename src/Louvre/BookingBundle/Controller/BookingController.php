@@ -11,6 +11,7 @@ namespace Louvre\BookingBundle\Controller;
 use Louvre\BookingBundle\Entity\OrderOfTickets;
 use Louvre\BookingBundle\Entity\Ticket;
 use Louvre\BookingBundle\Entity\Visitor;
+use Louvre\BookingBundle\Form\OrderOfTicketsType;
 use Louvre\BookingBundle\Form\TicketType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -35,7 +36,7 @@ class BookingController extends Controller {
                         ->render('LouvreBookingBundle:Booking:booking.html.twig'
             );
         return new Response($content); */
-        $ticket = new Ticket();
+  /*      $ticket = new Ticket();
      //   $visitor = new Visitor();
 
         $form = $this->get('form.factory')->create(TicketType::class, $ticket);
@@ -52,12 +53,25 @@ class BookingController extends Controller {
 
         return $this->render('LouvreBookingBundle:Booking:booking.html.twig', array(
             'form' => $form->createView(),
+        )); */
+
+        $orderOfTickets = new OrderOfTickets();
+
+        $form = $this->get('form.factory')->create(OrderOfTicketsType::class, $orderOfTickets);
+
+        if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($orderOfTickets);
+            $em->flush();
+
+            $request->getSession()->getFlashBag()->add('notice', 'Billet bien enregistrée.');
+
+            return $this->redirectToRoute('oc_platform_view', array('id' => $orderOfTickets->getId()));
+        }
+
+        return $this->render('LouvreBookingBundle:Booking:booking.html.twig', array(
+            'form' => $form->createView(),
         ));
-
-
-        //créer un form commande avec des relations v
-        //ers les 2 autres entités
-        // et permettre leur appel
     }
 
     public function addAction(Request $request) {

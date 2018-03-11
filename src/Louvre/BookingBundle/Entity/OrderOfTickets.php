@@ -2,6 +2,7 @@
 
 namespace Louvre\BookingBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -37,9 +38,9 @@ class OrderOfTickets
     /**
      * @var int
      *
-     * @ORM\Column(name="ticketsNumber", type="smallint")
+     * @ORM\Column(name="ticketsQuantity", type="smallint")
      */
-    private $ticketsNumber;
+    private $ticketsQuantity;
 
     /**
      * @var string
@@ -48,6 +49,18 @@ class OrderOfTickets
      */
     private $amount;
 
+
+    /**
+     * @ORM\OneToMany(targetEntity="Louvre\BookingBundle\Entity\Ticket",
+     *     mappedBy="orderOfTickets")
+     */
+    private $tickets;
+
+    public function __construct()
+    {
+        $this->purchaseDate = new \DateTime();
+        $this->tickets = new ArrayCollection();
+    }
 
     /**
      * Get id.
@@ -81,30 +94,6 @@ class OrderOfTickets
     public function getPurchaseDate()
     {
         return $this->purchaseDate;
-    }
-
-    /**
-     * Set ticketsNumber.
-     *
-     * @param int $ticketsNumber
-     *
-     * @return OrderOfTickets
-     */
-    public function setTicketsNumber($ticketsNumber)
-    {
-        $this->ticketsNumber = $ticketsNumber;
-
-        return $this;
-    }
-
-    /**
-     * Get ticketsNumber.
-     *
-     * @return int
-     */
-    public function getTicketsNumber()
-    {
-        return $this->ticketsNumber;
     }
 
     /**
@@ -155,5 +144,67 @@ class OrderOfTickets
     public function getVisitor()
     {
         return $this->visitor;
+    }
+
+    /**
+     * Set ticketsQuantity.
+     *
+     * @param int $ticketsQuantity
+     *
+     * @return OrderOfTickets
+     */
+    public function setTicketsQuantity($ticketsQuantity)
+    {
+        $this->ticketsQuantity = $ticketsQuantity;
+
+        return $this;
+    }
+
+    /**
+     * Get ticketsQuantity.
+     *
+     * @return int
+     */
+    public function getTicketsQuantity()
+    {
+        return $this->ticketsQuantity;
+    }
+
+
+    /**
+     * Add ticket.
+     *
+     * @param \Louvre\BookingBundle\Entity\Ticket $ticket
+     *
+     * @return OrderOfTickets
+     */
+    public function addTicket(Ticket $ticket)
+    {
+        $this->tickets[] = $ticket;
+        $ticket->setOrderOfTickets($this);
+
+        return $this;
+    }
+
+    /**
+     * Remove ticket.
+     *
+     * @param \Louvre\BookingBundle\Entity\Ticket $ticket
+     *
+     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
+     */
+    public function removeTicket(Ticket $ticket)
+    {
+        return $this->tickets->removeElement($ticket);
+    }
+
+    /**
+     * Get tickets.
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getTickets()
+    {
+        return $this->tickets;
     }
 }

@@ -19,7 +19,9 @@ class Ticket
     private $visitor;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Louvre\BookingBundle\Entity\OrderOfTickets", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="Louvre\BookingBundle\Entity\OrderOfTickets",
+     * inversedBy="tickets",
+     * cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $orderOfTickets;
@@ -53,7 +55,6 @@ class Ticket
      * @ORM\Column(name="ticketType", type="string")
      */
     private $ticketType;
-
 
     /**
      * Get id.
@@ -160,6 +161,8 @@ class Ticket
     {
         return $this->visitor;
     }
+
+
 
     /**
      * Set orderOfTickets.
