@@ -4,6 +4,7 @@ namespace Louvre\BookingBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * OrderOfTickets
@@ -20,6 +21,13 @@ class OrderOfTickets
     private $visitor;
 
     /**
+     * @ORM\OneToMany(targetEntity="Louvre\BookingBundle\Entity\Ticket",
+     *     mappedBy="orderOfTickets", cascade={"persist"})
+     * @Assert\NotBlank()
+     */
+    private $tickets;
+
+    /**
      * @var int
      *
      * @ORM\Column(name="id", type="integer")
@@ -32,6 +40,7 @@ class OrderOfTickets
      * @var \DateTime
      *
      * @ORM\Column(name="purchaseDate", type="datetime")
+     * @Assert\DateTime()
      */
     private $purchaseDate;
 
@@ -39,22 +48,18 @@ class OrderOfTickets
      * @var int
      *
      * @ORM\Column(name="ticketsQuantity", type="smallint")
+     * @Assert\Type(type="integer")
+     * @Assert\NotBlank()
      */
     private $ticketsQuantity;
 
     /**
-     * @var string
+     * @var float
      *
      * @ORM\Column(name="amount", type="decimal", precision=6, scale=2)
+     *
      */
     private $amount;
-
-
-    /**
-     * @ORM\OneToMany(targetEntity="Louvre\BookingBundle\Entity\Ticket",
-     *     mappedBy="orderOfTickets")
-     */
-    private $tickets;
 
     public function __construct()
     {
@@ -96,19 +101,6 @@ class OrderOfTickets
         return $this->purchaseDate;
     }
 
-    /**
-     * Set amount.
-     *
-     * @param string $amount
-     *
-     * @return OrderOfTickets
-     */
-    public function setAmount($amount)
-    {
-        $this->amount = $amount;
-
-        return $this;
-    }
 
     /**
      * Get amount.
@@ -117,8 +109,6 @@ class OrderOfTickets
      */
     public function getAmount()
     {
-       // $this->amount = 0;
-      //  foreach (($this->getTicket))
         return $this->amount;
     }
 
@@ -182,7 +172,6 @@ class OrderOfTickets
     {
         $this->tickets[] = $ticket;
         $ticket->setOrderOfTickets($this);
-
         return $this;
     }
 
@@ -206,5 +195,21 @@ class OrderOfTickets
     public function getTickets()
     {
         return $this->tickets;
+    }
+
+    /**
+     * Set amount.
+     *
+     * @param string $amount
+     *
+     * @return OrderOfTickets
+     */
+    public function setAmount($amount)
+    {
+        $this->amount = 0;
+        foreach($this->getTickets() as $ticket) {
+            $this->amount += $ticket->getPrice();
+        }
+        return $this;
     }
 }

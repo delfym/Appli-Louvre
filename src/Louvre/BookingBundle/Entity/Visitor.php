@@ -3,6 +3,7 @@
 namespace Louvre\BookingBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Visitor
@@ -36,19 +37,29 @@ class Visitor
     private $firstName;
 
     /**
-     * @var \DateTime
+     * @var \Date
      *
      * @ORM\Column(name="birthDate", type="date")
+     * @Assert\Date()
      */
     private $birthDate;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="email", type="string", length=200)
+     * @ORM\Column(name="email", type="string", length=50)
+     * @Assert\Email()
      */
     private $email;
 
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="country", type="string", length=50)
+     * @Assert\Country()
+     * @Assert\NotBlank()
+     */
     private $country;
 
 
@@ -156,5 +167,29 @@ class Visitor
         $this->email = $email;
 
         return $this;
+    }
+
+    /**
+     * Set country.
+     *
+     * @param string $country
+     *
+     * @return Visitor
+     */
+    public function setCountry($country)
+    {
+        $this->country = $country;
+
+        return $this;
+    }
+
+    /**
+     * Get country.
+     *
+     * @return string
+     */
+    public function getCountry()
+    {
+        return $this->country;
     }
 }

@@ -36,37 +36,25 @@ class BookingController extends Controller {
                         ->render('LouvreBookingBundle:Booking:booking.html.twig'
             );
         return new Response($content); */
-  /*      $ticket = new Ticket();
-     //   $visitor = new Visitor();
-
-        $form = $this->get('form.factory')->create(TicketType::class, $ticket);
-
-        if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($ticket);
-            $em->flush();
-
-            $request->getSession()->getFlashBag()->add('notice', 'Billet bien enregistrée.');
-
-            return $this->redirectToRoute('oc_platform_view', array('id' => $ticket->getId()));
-        }
-
-        return $this->render('LouvreBookingBundle:Booking:booking.html.twig', array(
-            'form' => $form->createView(),
-        )); */
 
         $orderOfTickets = new OrderOfTickets();
 
-        $form = $this->get('form.factory')->create(OrderOfTicketsType::class, $orderOfTickets);
+        $form = $this->get('form.factory')
+                     ->create(OrderOfTicketsType::class, $orderOfTickets);
 
-        if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {
+        if ($request->isMethod('POST')
+            && $form->handleRequest($request)
+                    ->isValid()) {
+        var_dump(($request));
             $em = $this->getDoctrine()->getManager();
             $em->persist($orderOfTickets);
             $em->flush();
 
-            $request->getSession()->getFlashBag()->add('notice', 'Billet bien enregistrée.');
+            $request->getSession()->getFlashBag()
+                    ->add('notice', 'Billet bien enregistré.');
 
-            return $this->redirectToRoute('oc_platform_view', array('id' => $orderOfTickets->getId()));
+            return $this->redirectToRoute('louvre_booking_page', array(
+                    'id' => $orderOfTickets->getId()));
         }
 
         return $this->render('LouvreBookingBundle:Booking:booking.html.twig', array(
@@ -75,18 +63,20 @@ class BookingController extends Controller {
     }
 
     public function addAction(Request $request) {
-        $ticket = new Ticket();
-    //    $orderOfTickets = new OrderOfTickets();
+      //  $ticket = new Ticket();
+        $orderOfTickets = new OrderOfTickets();
     //    $visitor = new Visitor();
 
-        $formBuilder = $this->get('form.factory')
-                            ->createBuilder(FormType::class, $ticket);
-        $formBuilder
+
+        $form = $this->get('form.factory')
+            ->create(OrderOfTicketsType::class, $orderOfTickets);
+
+        $form
             ->add('ticketDate', DateType::class)
             ->add('ticketType', ChoiceType::class)
             ->add('save',       SubmitType::class);
 
-        $form = $formBuilder->getForm();
+        $form = $form->getForm();
 
         return $this->render('LouvreBookingBundle:Booking:add.html.twig', array(
             'form' => $form->createView(),

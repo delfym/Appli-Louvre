@@ -3,6 +3,7 @@
 namespace Louvre\BookingBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Ticket
@@ -15,6 +16,7 @@ class Ticket
     /**
      * @ORM\OneToOne(targetEntity="Louvre\BookingBundle\Entity\Visitor", cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
+     * @Assert\NotBlank()
      */
     private $visitor;
 
@@ -36,16 +38,22 @@ class Ticket
     private $id;
 
     /**
-     * @var string
+     * @var float
      *
      * @ORM\Column(name="price", type="decimal", precision=4, scale=2)
+     * @Assert\NotBlank()
      */
     private $price;
 
     /**
-     * @var \DateTime
+     * @var boolean
+     */
+    private $reduction;
+
+    /**
      *
      * @ORM\Column(name="ticketDate", type="datetime")
+     *
      */
     private $ticketDate;
 
@@ -53,8 +61,16 @@ class Ticket
      * @var string
      *
      * @ORM\Column(name="ticketType", type="string")
+     * @Assert\NotBlank()
      */
     private $ticketType;
+
+
+
+    public function __construct()
+    {
+       // $this->ticketDate = new \DateTime();
+    }
 
     /**
      * Get id.
@@ -75,8 +91,11 @@ class Ticket
      */
     public function setPrice($price)
     {
-        $this->price = $price;
-
+        if(null != $this->reduction) {
+            $this->price = $price - 10;
+        } else {
+            $this->price = $price;
+        }
         return $this;
     }
 
@@ -100,14 +119,14 @@ class Ticket
     public function setTicketDate($ticketDate)
     {
         $this->ticketDate = $ticketDate;
-
+        //var_dump($this->ticketDate);
         return $this;
     }
 
     /**
      * Get ticketDate.
      *
-     * @return \DateTime
+     * @return \dateTime
      */
     public function getTicketDate()
     {
@@ -186,5 +205,29 @@ class Ticket
     public function getOrderOfTickets()
     {
         return $this->orderOfTickets;
+    }
+
+    /**
+     * Set reduction.
+     *
+     * @param bool $reduction
+     *
+     * @return Ticket
+     */
+    public function setReduction($reduction)
+    {
+        $this->reduction = $reduction;
+
+        return $this;
+    }
+
+    /**
+     * Get reduction.
+     *
+     * @return bool
+     */
+    public function getReduction()
+    {
+        return $this->reduction;
     }
 }

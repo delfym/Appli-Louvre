@@ -14,5 +14,6 @@ $.fn.datepicker.dates['fr'] = {
 };
 
 $('.datepicker').datepicker({
-    language: "fr"
+    language: "fr",
+    autoclose:true
 });

@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dc939f42-8885-4abc-b779-88c276419931" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/web/Public/js/addTickets.js" />
+    <list default="true" id="dc939f42-8885-4abc-b779-88c276419931" name="Default" comment="imbrication de formulaire et ajout du script jquery correspondant">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/app/Resources/views/layout.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/layout.html.twig" />
+      <change beforePath="$PROJECT_DIR$/app/config/config.yml" afterPath="$PROJECT_DIR$/app/config/config.yml" />
       <change beforePath="$PROJECT_DIR$/src/Louvre/BookingBundle/Controller/BookingController.php" afterPath="$PROJECT_DIR$/src/Louvre/BookingBundle/Controller/BookingController.php" />
       <change beforePath="$PROJECT_DIR$/src/Louvre/BookingBundle/Entity/OrderOfTickets.php" afterPath="$PROJECT_DIR$/src/Louvre/BookingBundle/Entity/OrderOfTickets.php" />
       <change beforePath="$PROJECT_DIR$/src/Louvre/BookingBundle/Entity/Ticket.php" afterPath="$PROJECT_DIR$/src/Louvre/BookingBundle/Entity/Ticket.php" />
-      <change beforePath="$PROJECT_DIR$/src/Louvre/BookingBundle/Resources/views/Booking/booking.html.twig" afterPath="$PROJECT_DIR$/src/Louvre/BookingBundle/Resources/views/Booking/booking.html.twig" />
+      <change beforePath="$PROJECT_DIR$/src/Louvre/BookingBundle/Entity/Visitor.php" afterPath="$PROJECT_DIR$/src/Louvre/BookingBundle/Entity/Visitor.php" />
       <change beforePath="$PROJECT_DIR$/src/Louvre/BookingBundle/Resources/views/Booking/form.html.twig" afterPath="$PROJECT_DIR$/src/Louvre/BookingBundle/Resources/views/Booking/form.html.twig" />
-      <change beforePath="$PROJECT_DIR$/web/Public/cover.css" afterPath="$PROJECT_DIR$/web/Public/css/cover.css" />
-      <change beforePath="$PROJECT_DIR$/web/Public/louvre-header.jpg" afterPath="$PROJECT_DIR$/web/Public/images/louvre-header.jpg" />
-      <change beforePath="$PROJECT_DIR$/web/Public/louvre-header.jpg.sb-cd7114f9-v8EBIt" afterPath="$PROJECT_DIR$/web/Public/images/louvre-header.jpg.sb-cd7114f9-v8EBIt" />
+      <change beforePath="$PROJECT_DIR$/web/Public/css/cover.css" afterPath="$PROJECT_DIR$/web/Public/css/cover.css" />
+      <change beforePath="$PROJECT_DIR$/web/Public/js/addTickets.js" afterPath="" />
       <change beforePath="$PROJECT_DIR$/web/Public/myDatepicker.js" afterPath="$PROJECT_DIR$/web/Public/myDatepicker.js" />
     </list>
     <ignored path=".idea/" />
@@ -77,24 +76,25 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="form.html.twig" pinned="false" current-in-tab="true">
+      <file leaf-file-name="form.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Louvre/BookingBundle/Resources/views/Booking/form.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="203">
-              <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-              <folding>
-                <element signature="n#div#1;n#div#0;n#!!top" expanded="false" />
-              </folding>
+            <state relative-caret-position="595">
+              <caret line="35" column="50" lean-forward="false" selection-start-line="35" selection-start-column="50" selection-end-line="35" selection-end-column="50" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="addTickets.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/Public/js/addTickets.js">
+      <file leaf-file-name="BookingController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Louvre/BookingBundle/Controller/BookingController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="425">
+              <caret line="47" column="8" lean-forward="false" selection-start-line="47" selection-start-column="8" selection-end-line="47" selection-end-column="8" />
+              <folding>
+                <element signature="e#804#1073#0#PHP" expanded="false" />
+                <element signature="e#2161#2781#0#PHP" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -102,10 +102,65 @@
       <file leaf-file-name="TicketType.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Louvre/BookingBundle/Form/TicketType.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="77">
-              <caret line="22" column="39" lean-forward="false" selection-start-line="22" selection-start-column="39" selection-end-line="22" selection-end-column="39" />
+            <state relative-caret-position="272">
+              <caret line="25" column="33" lean-forward="false" selection-start-line="25" selection-start-column="33" selection-end-line="25" selection-end-column="33" />
               <folding>
-                <element signature="e#45#101#0#PHP" expanded="true" />
+                <element signature="e#45#92#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Ticket.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Louvre/BookingBundle/Entity/Ticket.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="390">
+              <caret line="186" column="26" lean-forward="false" selection-start-line="186" selection-start-column="26" selection-end-line="186" selection-end-column="26" />
+              <folding>
+                <element signature="e#136#268#0#PHP" expanded="false" />
+                <element signature="e#1206#1322#0#PHP" expanded="false" />
+                <element signature="e#1449#1501#0#PHP" expanded="false" />
+                <element signature="e#1506#1567#0#PHP" expanded="false" />
+                <element signature="e#1573#1666#0#PHP" expanded="false" />
+                <element signature="e#1671#1878#0#PHP" expanded="false" />
+                <element signature="e#1884#1942#0#PHP" expanded="false" />
+                <element signature="e#1947#2014#0#PHP" expanded="false" />
+                <element signature="e#2447#2550#0#PHP" expanded="false" />
+                <element signature="e#2679#2742#0#PHP" expanded="false" />
+                <element signature="e#2747#2824#0#PHP" expanded="false" />
+                <element signature="e#2830#2957#0#PHP" expanded="false" />
+                <element signature="e#2962#3105#0#PHP" expanded="false" />
+                <element signature="e#3111#3201#0#PHP" expanded="false" />
+                <element signature="e#3206#3277#0#PHP" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OrderOfTickets.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Louvre/BookingBundle/Entity/OrderOfTickets.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2091">
+              <caret line="202" column="28" lean-forward="false" selection-start-line="202" selection-start-column="28" selection-end-line="202" selection-end-column="28" />
+              <folding>
+                <element signature="e#1534#1586#0#PHP" expanded="false" />
+                <element signature="e#1591#1652#0#PHP" expanded="false" />
+                <element signature="e#1658#1776#0#PHP" expanded="false" />
+                <element signature="e#1781#1907#0#PHP" expanded="false" />
+                <element signature="e#1913#1981#0#PHP" expanded="false" />
+                <element signature="e#1986#2067#0#PHP" expanded="false" />
+                <element signature="e#2138#2207#0#PHP" expanded="false" />
+                <element signature="e#2213#2348#0#PHP" expanded="false" />
+                <element signature="e#2353#2467#0#PHP" expanded="false" />
+                <element signature="e#2473#2563#0#PHP" expanded="false" />
+                <element signature="e#2568#2639#0#PHP" expanded="false" />
+                <element signature="e#2645#2763#0#PHP" expanded="false" />
+                <element signature="e#2768#2906#0#PHP" expanded="false" />
+                <element signature="e#2912#2977#0#PHP" expanded="false" />
+                <element signature="e#2982#3069#0#PHP" expanded="false" />
+                <element signature="e#3373#3575#0#PHP" expanded="false" />
+                <element signature="e#3580#3691#0#PHP" expanded="false" />
+                <element signature="e#3697#3790#0#PHP" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -114,10 +169,10 @@
       <file leaf-file-name="OrderOfTicketsType.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Louvre/BookingBundle/Form/OrderOfTicketsType.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="338">
-              <caret line="32" column="43" lean-forward="false" selection-start-line="32" selection-start-column="43" selection-end-line="32" selection-end-column="43" />
+            <state relative-caret-position="204">
+              <caret line="23" column="5" lean-forward="false" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
               <folding>
-                <element signature="e#45#107#0#PHP" expanded="true" />
+                <element signature="e#45#78#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -143,6 +198,11 @@
       <find>inner</find>
       <find>inner-cover</find>
       <find>form-control</find>
+      <find>cover</find>
+      <find>pr</find>
+      <find>cont</find>
+      <find>border</find>
+      <find>var_dump</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -156,11 +216,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Louvre/BookingBundle/Resources/views/Public/bootqtrap-carousel.js" />
-        <option value="$PROJECT_DIR$/src/Louvre/BookingBundle/Resources/views/Public/bootstrap-collapse.js" />
-        <option value="$PROJECT_DIR$/src/Louvre/BookingBundle/Resources/views/Public/js/bootstrap-dropdown.js" />
-        <option value="$PROJECT_DIR$/src/Louvre/BookingBundle/Resources/views/Public/js/bootstrap-popover.js" />
-        <option value="$PROJECT_DIR$/src/Louvre/BookingBundle/Resources/views/Public/js/bootstrap-modal.js" />
         <option value="$PROJECT_DIR$/src/Louvre/BookingBundle/Resources/views/Public/js/bootstrap-transition.js" />
         <option value="$PROJECT_DIR$/src/Louvre/BookingBundle/Resources/views/Public/js/bootstrap-typeahead.js" />
         <option value="$PROJECT_DIR$/src/Louvre/BookingBundle/Resources/views/Public/js/bootstrap-tab.js" />
@@ -187,26 +242,31 @@
         <option value="$PROJECT_DIR$/src/Louvre/BookingBundle/Resources/views/Booking/add.html.twig" />
         <option value="$PROJECT_DIR$/src/Louvre/BookingBundle/Resources/views/layout.html.twig" />
         <option value="$PROJECT_DIR$/src/Louvre/BookingBundle/Resources/config/routing.yml" />
-        <option value="$PROJECT_DIR$/src/Louvre/BookingBundle/Entity/Visitor.php" />
         <option value="$PROJECT_DIR$/app/config/parameters.yml" />
-        <option value="$PROJECT_DIR$/app/config/config.yml" />
         <option value="$PROJECT_DIR$/web/Public/bootstrap-datepicker.js" />
         <option value="$PROJECT_DIR$/web/Public/bootstrap-datepicker.fr.js" />
         <option value="$PROJECT_DIR$/web/Public/js/dropdown.js" />
-        <option value="$PROJECT_DIR$/web/Public/myDatepicker.js" />
-        <option value="$PROJECT_DIR$/src/Louvre/BookingBundle/Form/VisitorType.php" />
-        <option value="$PROJECT_DIR$/src/Louvre/BookingBundle/Controller/BookingController.php" />
-        <option value="$PROJECT_DIR$/src/Louvre/BookingBundle/Entity/Ticket.php" />
         <option value="$PROJECT_DIR$/web/Public/js/addTicketsBis.js" />
         <option value="$PROJECT_DIR$/web/Public/js/testForm.html" />
-        <option value="$PROJECT_DIR$/src/Louvre/BookingBundle/Entity/OrderOfTickets.php" />
-        <option value="$PROJECT_DIR$/src/Louvre/BookingBundle/Form/TicketType.php" />
+        <option value="$PROJECT_DIR$/web/Public/js/addTicketsCopie.js" />
+        <option value="$PROJECT_DIR$/web/Public/css/cover.css" />
+        <option value="$PROJECT_DIR$/web/Public/js/addTicketsV2.js" />
+        <option value="$PROJECT_DIR$/src/Louvre/BookingBundle/Resources/views/Booking/form_copie.html.twig" />
+        <option value="$PROJECT_DIR$/web/Public/js/addTickets_copie.js" />
+        <option value="$PROJECT_DIR$/web/Public/js/addTickets_test.js" />
+        <option value="$PROJECT_DIR$/src/Louvre/BookingBundle/Entity/Visitor.php" />
+        <option value="$PROJECT_DIR$/src/Louvre/BookingBundle/Form/VisitorType.php" />
         <option value="$PROJECT_DIR$/src/Louvre/BookingBundle/Resources/views/Booking/booking.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/layout.html.twig" />
+        <option value="$PROJECT_DIR$/app/config/config.yml" />
+        <option value="$PROJECT_DIR$/web/Public/myDatepicker.js" />
         <option value="$PROJECT_DIR$/src/Louvre/BookingBundle/Form/OrderOfTicketsType.php" />
-        <option value="$PROJECT_DIR$/src/Louvre/BookingBundle/Resources/views/Booking/form.html.twig" />
-        <option value="$PROJECT_DIR$/web/Public/js/addTicketsCopie.js" />
         <option value="$PROJECT_DIR$/web/Public/js/addTickets.js" />
+        <option value="$PROJECT_DIR$/src/Louvre/BookingBundle/Resources/views/Booking/form.html.twig" />
+        <option value="$PROJECT_DIR$/src/Louvre/BookingBundle/Form/TicketType.php" />
+        <option value="$PROJECT_DIR$/src/Louvre/BookingBundle/Entity/OrderOfTickets.php" />
+        <option value="$PROJECT_DIR$/src/Louvre/BookingBundle/Controller/BookingController.php" />
+        <option value="$PROJECT_DIR$/src/Louvre/BookingBundle/Entity/Ticket.php" />
       </list>
     </option>
   </component>
@@ -262,9 +322,9 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="521" />
+    <option name="x" value="445" />
     <option name="y" value="23" />
-    <option name="width" value="915" />
+    <option name="width" value="937" />
     <option name="height" value="797" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -302,8 +362,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -315,6 +375,12 @@
               <item name="Appli-Louvre" type="b2602c69:ProjectViewProjectNode" />
               <item name="Appli-Louvre" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="Appli-Louvre" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Appli-Louvre" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="config" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="Appli-Louvre" type="b2602c69:ProjectViewProjectNode" />
@@ -394,6 +460,15 @@
               <item name="Louvre" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="BookingBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="config" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="Appli-Louvre" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Appli-Louvre" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Louvre" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="BookingBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
@@ -416,13 +491,6 @@
               <item name="Appli-Louvre" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="web" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Public" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Appli-Louvre" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Appli-Louvre" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="web" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Public" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="css" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="Appli-Louvre" type="b2602c69:ProjectViewProjectNode" />
@@ -496,7 +564,10 @@
       <updated>1518016421880</updated>
       <workItem from="1518016423449" duration="28577000" />
       <workItem from="1518968534355" duration="27013000" />
-      <workItem from="1519568345251" duration="105938000" />
+      <workItem from="1519568345251" duration="111874000" />
+      <workItem from="1520800116134" duration="45655000" />
+      <workItem from="1521051927446" duration="65207000" />
+      <workItem from="1521665400933" duration="34000" />
     </task>
     <task id="LOCAL-00001" summary="ajout de la relation ManyToOne avec l'entité OrderOfTickets">
       <created>1519829969384</created>
@@ -512,16 +583,24 @@
       <option name="project" value="LOCAL" />
       <updated>1520497832098</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="ajout de la relation ManyToOne avec l'entité OrderOfTickets&#10;imbrication de formulaire&#10;mise à jour de l'affichage des billets du formulaire">
+      <created>1520782608403</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1520782608403</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="161528000" />
+    <option name="totallyTimeSpent" value="278360000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="521" y="23" width="915" height="797" extended-state="0" />
+    <frame x="445" y="23" width="937" height="797" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2520046" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19656652" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32905984" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -533,6 +612,7 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32905984" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -570,47 +650,17 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="ajout de la relation ManyToOne avec l'entité OrderOfTickets" />
     <MESSAGE value="ajout de la relation ManyToOne avec l'entité OrderOfTickets&#10;imbrication de formulaire" />
-    <option name="LAST_COMMIT_MESSAGE" value="ajout de la relation ManyToOne avec l'entité OrderOfTickets&#10;imbrication de formulaire" />
+    <MESSAGE value="ajout de la relation ManyToOne avec l'entité OrderOfTickets&#10;imbrication de formulaire&#10;mise à jour de l'affichage des billets du formulaire" />
+    <MESSAGE value="imbrication de formulaire et ajout du script jquery correspondant" />
+    <option name="LAST_COMMIT_MESSAGE" value="imbrication de formulaire et ajout du script jquery correspondant" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="4" />
+      <option name="time" value="7" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Louvre/BookingBundle/Resources/views/Booking/index.html.twig" />
-    <entry file="file://$PROJECT_DIR$/app/config/services.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="1" lean-forward="false" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../ExAppli-LouvreV0/src/Louvre/BookingBundle/Resources/views/Booking/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="14" lean-forward="false" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/AppKernel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="35" column="32" lean-forward="true" selection-start-line="35" selection-start-column="32" selection-end-line="35" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Louvre/BookingBundle/LouvreBookingBundle.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig" />
     <entry file="file://$PROJECT_DIR$/../ExAppli-LouvreV0/composer.json">
       <provider selected="true" editor-type-id="text-editor">
@@ -623,7 +673,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
           <caret line="24" column="9" lean-forward="false" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -631,7 +680,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -659,7 +707,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="17" column="27" lean-forward="false" selection-start-line="17" selection-start-column="27" selection-end-line="17" selection-end-column="27" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -682,79 +729,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
           <caret line="3" column="26" lean-forward="false" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Louvre/BookingBundle/Resources/views/Booking/booking.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="8" lean-forward="true" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Louvre/BookingBundle/Resources/views/Booking/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-42">
-          <caret line="20" column="14" lean-forward="false" selection-start-line="20" selection-start-column="14" selection-end-line="20" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Louvre/BookingBundle/Resources/views/Booking/bookingBis.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="14" lean-forward="false" selection-start-line="17" selection-start-column="14" selection-end-line="17" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Louvre/BookingBundle/Resources/views/Booking/add.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Louvre/BookingBundle/Entity/Visitor.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="501">
-          <caret line="52" column="0" lean-forward="false" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
-          <folding>
-            <element signature="e#237#376#0#PHP" expanded="false" />
-            <element signature="e#399#495#0#PHP" expanded="false" />
-            <element signature="e#520#621#0#PHP" expanded="false" />
-            <element signature="e#651#741#0#PHP" expanded="false" />
-            <element signature="e#771#868#0#PHP" expanded="false" />
-            <element signature="e#918#970#0#PHP" expanded="false" />
-            <element signature="e#975#1036#0#PHP" expanded="false" />
-            <element signature="e#1042#1099#0#PHP" expanded="false" />
-            <element signature="e#1104#1169#0#PHP" expanded="false" />
-            <element signature="e#1175#1267#0#PHP" expanded="false" />
-            <element signature="e#1272#1366#0#PHP" expanded="false" />
-            <element signature="e#1372#1434#0#PHP" expanded="false" />
-            <element signature="e#1439#1514#0#PHP" expanded="false" />
-            <element signature="e#1520#1622#0#PHP" expanded="false" />
-            <element signature="e#1627#1741#0#PHP" expanded="false" />
-            <element signature="e#1747#1812#0#PHP" expanded="false" />
-            <element signature="e#1817#1892#0#PHP" expanded="false" />
-            <element signature="e#1898#2003#0#PHP" expanded="false" />
-            <element signature="e#2008#2122#0#PHP" expanded="false" />
-            <element signature="e#2128#2186#0#PHP" expanded="false" />
-            <element signature="e#2191#2258#0#PHP" expanded="false" />
-            <element signature="e#2264#2358#0#PHP" expanded="false" />
-            <element signature="e#2363#2461#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Louvre/BookingBundle/Resources/views/Booking/booking.twig" />
+    <entry file="file://$PROJECT_DIR$/src/Louvre/BookingBundle/Resources/views/Booking/bookingBis.html.twig" />
+    <entry file="file://$PROJECT_DIR$/src/Louvre/BookingBundle/Resources/views/Booking/add.html.twig" />
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/05cee4fd-ac96-4b42-9672-db7e308c6684/console.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -769,7 +753,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" column="24" lean-forward="false" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -777,31 +760,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
           <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Louvre/BookingBundle/Resources/config/routing.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/parameters.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="23" lean-forward="true" selection-start-line="3" selection-start-column="23" selection-end-line="3" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/config.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="41" column="22" lean-forward="false" selection-start-line="41" selection-start-column="22" selection-end-line="41" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -809,53 +767,15 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/Public/bootstrap-datepicker.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-8">
-          <caret line="1680" column="22" lean-forward="false" selection-start-line="1680" selection-start-column="22" selection-end-line="1680" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/Public/bootstrap-datepicker.fr.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="11" lean-forward="false" selection-start-line="17" selection-start-column="11" selection-end-line="17" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/web/Public/bootstrap-datepicker.js" />
+    <entry file="file://$PROJECT_DIR$/web/Public/bootstrap-datepicker.fr.js" />
     <entry file="file://$PROJECT_DIR$/web/Public/js/dropdown.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="9" column="3" lean-forward="false" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
-          <folding>
-            <element signature="e#0#22#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Louvre/BookingBundle/Form/VisitorType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="9" column="40" lean-forward="false" selection-start-line="9" selection-start-column="40" selection-end-line="9" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Louvre/BookingBundle/Controller/BookingController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="383">
-          <caret line="68" column="91" lean-forward="false" selection-start-line="68" selection-start-column="91" selection-end-line="68" selection-end-column="91" />
-          <folding>
-            <element signature="e#149#196#0#PHP" expanded="false" />
-            <element signature="e#804#1073#0#PHP" expanded="false" />
-            <element signature="e#2732#3376#0#PHP" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -863,170 +783,187 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="12" column="14" lean-forward="false" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Louvre/BookingBundle/Entity/Ticket.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="34" column="7" lean-forward="false" selection-start-line="34" selection-start-column="7" selection-end-line="34" selection-end-column="7" />
-          <folding>
-            <element signature="e#81#213#0#PHP" expanded="false" />
-            <element signature="e#632#771#0#PHP" expanded="false" />
-            <element signature="e#794#902#0#PHP" expanded="false" />
-            <element signature="e#928#1023#0#PHP" expanded="false" />
-            <element signature="e#1054#1144#0#PHP" expanded="false" />
-            <element signature="e#1175#1227#0#PHP" expanded="false" />
-            <element signature="e#1232#1293#0#PHP" expanded="false" />
-            <element signature="e#1299#1392#0#PHP" expanded="false" />
-            <element signature="e#1397#1495#0#PHP" expanded="false" />
-            <element signature="e#1501#1559#0#PHP" expanded="false" />
-            <element signature="e#1564#1631#0#PHP" expanded="false" />
-            <element signature="e#1637#1743#0#PHP" expanded="false" />
-            <element signature="e#1748#1866#0#PHP" expanded="false" />
-            <element signature="e#2026#2129#0#PHP" expanded="false" />
-            <element signature="e#2134#2252#0#PHP" expanded="false" />
-            <element signature="e#2258#2321#0#PHP" expanded="false" />
-            <element signature="e#2326#2403#0#PHP" expanded="false" />
-            <element signature="e#2409#2536#0#PHP" expanded="false" />
-            <element signature="e#2541#2684#0#PHP" expanded="false" />
-            <element signature="e#2690#2780#0#PHP" expanded="false" />
-            <element signature="e#2785#2856#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Louvre/BookingBundle/Resources/views/Booking/form2.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="23" column="10" lean-forward="false" selection-start-line="9" selection-start-column="4" selection-end-line="23" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/Public/js/addTicketsBis.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="72" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/Public/js/testForm.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2383">
-          <caret line="163" column="0" lean-forward="false" selection-start-line="163" selection-start-column="0" selection-end-line="163" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Louvre/BookingBundle/Resources/views/Booking/form2.html.twig" />
+    <entry file="file://$PROJECT_DIR$/web/Public/js/addTicketsBis.js" />
+    <entry file="file://$PROJECT_DIR$/web/Public/js/testForm.html" />
+    <entry file="file://$PROJECT_DIR$/web/Public/js/addTicketsCopie.js" />
     <entry file="file://$PROJECT_DIR$/web/Public/css/cover.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-700">
-          <caret line="7" column="9" lean-forward="false" selection-start-line="7" selection-start-column="9" selection-end-line="7" selection-end-column="9" />
-          <folding />
+        <state relative-caret-position="153">
+          <caret line="9" column="1" lean-forward="false" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Louvre/BookingBundle/Entity/OrderOfTickets.php">
+    <entry file="file://$PROJECT_DIR$/web/Public/js/addTicketsV2.js" />
+    <entry file="file://$PROJECT_DIR$/src/Louvre/BookingBundle/Resources/views/Booking/form_copie.html.twig" />
+    <entry file="file://$PROJECT_DIR$/web/Public/js/addTickets_copie.js" />
+    <entry file="file://$PROJECT_DIR$/web/Public/js/addTickets_test.js" />
+    <entry file="file://$PROJECT_DIR$/src/Louvre/BookingBundle/Resources/config/routing.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="61" column="47" lean-forward="false" selection-start-line="61" selection-start-column="47" selection-end-line="61" selection-end-column="47" />
-          <folding>
-            <element signature="e#316#460#0#PHP" expanded="false" />
-            <element signature="e#488#627#0#PHP" expanded="false" />
-            <element signature="e#650#747#0#PHP" expanded="false" />
-            <element signature="e#780#874#0#PHP" expanded="false" />
-            <element signature="e#910#1019#0#PHP" expanded="false" />
-            <element signature="e#1339#1391#0#PHP" expanded="false" />
-            <element signature="e#1396#1457#0#PHP" expanded="false" />
-            <element signature="e#1463#1581#0#PHP" expanded="false" />
-            <element signature="e#1586#1712#0#PHP" expanded="false" />
-            <element signature="e#1718#1786#0#PHP" expanded="false" />
-            <element signature="e#1791#1872#0#PHP" expanded="false" />
-            <element signature="e#1878#1981#0#PHP" expanded="false" />
-            <element signature="e#1986#2088#0#PHP" expanded="false" />
-            <element signature="e#2094#2153#0#PHP" expanded="false" />
-            <element signature="e#2301#2436#0#PHP" expanded="false" />
-            <element signature="e#2441#2555#0#PHP" expanded="false" />
-            <element signature="e#2561#2651#0#PHP" expanded="false" />
-            <element signature="e#2656#2727#0#PHP" expanded="false" />
-            <element signature="e#2733#2851#0#PHP" expanded="false" />
-            <element signature="e#2856#2994#0#PHP" expanded="false" />
-            <element signature="e#3000#3065#0#PHP" expanded="false" />
-            <element signature="e#3070#3157#0#PHP" expanded="false" />
-            <element signature="e#3164#3296#0#PHP" expanded="false" />
-          </folding>
+        <state relative-caret-position="221">
+          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/Public/myDatepicker.js">
+    <entry file="file://$PROJECT_DIR$/web/Public/js/bootstrap-datepicker.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Louvre/BookingBundle/Resources/views/Booking/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-42">
+          <caret line="20" column="14" lean-forward="false" selection-start-line="20" selection-start-column="14" selection-end-line="20" selection-end-column="14" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Louvre/BookingBundle/Resources/views/Booking/booking.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="20" lean-forward="false" selection-start-line="23" selection-start-column="20" selection-end-line="23" selection-end-column="20" />
-          <folding />
+        <state relative-caret-position="306">
+          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/layout.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="7" lean-forward="false" selection-start-line="25" selection-start-column="7" selection-end-line="25" selection-end-column="7" />
+        <state relative-caret-position="405">
+          <caret line="68" column="46" lean-forward="true" selection-start-line="68" selection-start-column="46" selection-end-line="68" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/parameters.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="23" lean-forward="true" selection-start-line="3" selection-start-column="23" selection-end-line="3" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/config.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="14" lean-forward="false" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/Public/myDatepicker.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/Public/js/addTickets.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="258">
+          <caret line="25" column="47" lean-forward="false" selection-start-line="25" selection-start-column="47" selection-end-line="25" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Louvre/BookingBundle/Form/VisitorType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="27" column="59" lean-forward="false" selection-start-line="27" selection-start-column="59" selection-end-line="27" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Louvre/BookingBundle/Entity/Visitor.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="35" column="7" lean-forward="false" selection-start-line="35" selection-start-column="7" selection-end-line="35" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Louvre/BookingBundle/Resources/views/Booking/form.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="35" column="50" lean-forward="false" selection-start-line="35" selection-start-column="50" selection-end-line="35" selection-end-column="50" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Louvre/BookingBundle/Form/TicketType.php">
+    <entry file="file://$PROJECT_DIR$/src/Louvre/BookingBundle/Controller/BookingController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="77">
-          <caret line="22" column="39" lean-forward="false" selection-start-line="22" selection-start-column="39" selection-end-line="22" selection-end-column="39" />
+        <state relative-caret-position="425">
+          <caret line="47" column="8" lean-forward="false" selection-start-line="47" selection-start-column="8" selection-end-line="47" selection-end-column="8" />
           <folding>
-            <element signature="e#45#101#0#PHP" expanded="true" />
+            <element signature="e#804#1073#0#PHP" expanded="false" />
+            <element signature="e#2161#2781#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Louvre/BookingBundle/Form/OrderOfTicketsType.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="32" column="43" lean-forward="false" selection-start-line="32" selection-start-column="43" selection-end-line="32" selection-end-column="43" />
+        <state relative-caret-position="204">
+          <caret line="23" column="5" lean-forward="false" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
           <folding>
-            <element signature="e#45#107#0#PHP" expanded="true" />
+            <element signature="e#45#78#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/Public/js/addTicketsCopie.js">
+    <entry file="file://$PROJECT_DIR$/src/Louvre/BookingBundle/Entity/OrderOfTickets.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
-          <caret line="82" column="87" lean-forward="false" selection-start-line="82" selection-start-column="87" selection-end-line="82" selection-end-column="87" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/Public/js/addTickets.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Louvre/BookingBundle/Resources/views/Booking/form.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+        <state relative-caret-position="2091">
+          <caret line="202" column="28" lean-forward="false" selection-start-line="202" selection-start-column="28" selection-end-line="202" selection-end-column="28" />
           <folding>
-            <element signature="n#div#1;n#div#0;n#!!top" expanded="false" />
+            <element signature="e#1534#1586#0#PHP" expanded="false" />
+            <element signature="e#1591#1652#0#PHP" expanded="false" />
+            <element signature="e#1658#1776#0#PHP" expanded="false" />
+            <element signature="e#1781#1907#0#PHP" expanded="false" />
+            <element signature="e#1913#1981#0#PHP" expanded="false" />
+            <element signature="e#1986#2067#0#PHP" expanded="false" />
+            <element signature="e#2138#2207#0#PHP" expanded="false" />
+            <element signature="e#2213#2348#0#PHP" expanded="false" />
+            <element signature="e#2353#2467#0#PHP" expanded="false" />
+            <element signature="e#2473#2563#0#PHP" expanded="false" />
+            <element signature="e#2568#2639#0#PHP" expanded="false" />
+            <element signature="e#2645#2763#0#PHP" expanded="false" />
+            <element signature="e#2768#2906#0#PHP" expanded="false" />
+            <element signature="e#2912#2977#0#PHP" expanded="false" />
+            <element signature="e#2982#3069#0#PHP" expanded="false" />
+            <element signature="e#3373#3575#0#PHP" expanded="false" />
+            <element signature="e#3580#3691#0#PHP" expanded="false" />
+            <element signature="e#3697#3790#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Louvre/BookingBundle/Form/TicketType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="25" column="33" lean-forward="false" selection-start-line="25" selection-start-column="33" selection-end-line="25" selection-end-column="33" />
+          <folding>
+            <element signature="e#45#92#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Louvre/BookingBundle/Entity/Ticket.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="186" column="26" lean-forward="false" selection-start-line="186" selection-start-column="26" selection-end-line="186" selection-end-column="26" />
+          <folding>
+            <element signature="e#136#268#0#PHP" expanded="false" />
+            <element signature="e#1206#1322#0#PHP" expanded="false" />
+            <element signature="e#1449#1501#0#PHP" expanded="false" />
+            <element signature="e#1506#1567#0#PHP" expanded="false" />
+            <element signature="e#1573#1666#0#PHP" expanded="false" />
+            <element signature="e#1671#1878#0#PHP" expanded="false" />
+            <element signature="e#1884#1942#0#PHP" expanded="false" />
+            <element signature="e#1947#2014#0#PHP" expanded="false" />
+            <element signature="e#2447#2550#0#PHP" expanded="false" />
+            <element signature="e#2679#2742#0#PHP" expanded="false" />
+            <element signature="e#2747#2824#0#PHP" expanded="false" />
+            <element signature="e#2830#2957#0#PHP" expanded="false" />
+            <element signature="e#2962#3105#0#PHP" expanded="false" />
+            <element signature="e#3111#3201#0#PHP" expanded="false" />
+            <element signature="e#3206#3277#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
