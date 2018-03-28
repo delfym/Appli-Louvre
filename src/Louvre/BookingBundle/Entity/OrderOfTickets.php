@@ -11,27 +11,23 @@ use Symfony\Component\Validator\Constraints as Assert;
  *
  * @ORM\Table(name="order_of_tickets")
  * @ORM\Entity(repositoryClass="Louvre\BookingBundle\Repository\OrderOfTicketsRepository")
+ *
  */
 class OrderOfTickets
 {
     /**
-     * @ORM\OneToOne(targetEntity="Louvre\BookingBundle\Entity\Visitor", cascade={"persist"})
+     * @ORM\OneToOne(targetEntity="Louvre\BookingBundle\Entity\Visitor",
+          cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $visitor;
 
-    /**
-     * @ORM\OneToMany(targetEntity="Louvre\BookingBundle\Entity\Ticket",
-     *     mappedBy="orderOfTickets", cascade={"persist"})
-     * @Assert\NotBlank()
-     */
-    private $tickets;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="id", type="integer")
      * @ORM\Id
+     * @ORM\Column(name="id", type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
@@ -61,9 +57,25 @@ class OrderOfTickets
      */
     private $amount;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="email", type="string", length=50)
+     * @Assert\Email()
+     */
+    private $email;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Louvre\BookingBundle\Entity\Ticket",
+    mappedBy="orderOfTickets", cascade={"persist"})
+     */
+    private $tickets;
+
+
     public function __construct()
     {
         $this->purchaseDate = new \DateTime();
+
         $this->tickets = new ArrayCollection();
     }
 
@@ -105,7 +117,7 @@ class OrderOfTickets
     /**
      * Get amount.
      *
-     * @return string
+     * @return float
      */
     public function getAmount()
     {
@@ -159,12 +171,35 @@ class OrderOfTickets
     {
         return $this->ticketsQuantity;
     }
+    
+    /**
+     * Get email.
+     *
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
 
+    /**
+     * Set email.
+     *
+     * @param string $email
+     *
+     * @return Visitor
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+
+        return $this;
+    }
 
     /**
      * Add ticket.
      *
-     * @param \Louvre\BookingBundle\Entity\Ticket $ticket
+     * @param Ticket $ticket
      *
      * @return OrderOfTickets
      */
@@ -172,6 +207,7 @@ class OrderOfTickets
     {
         $this->tickets[] = $ticket;
         $ticket->setOrderOfTickets($this);
+
         return $this;
     }
 
@@ -197,6 +233,7 @@ class OrderOfTickets
         return $this->tickets;
     }
 
+
     /**
      * Set amount.
      *
@@ -206,10 +243,12 @@ class OrderOfTickets
      */
     public function setAmount($amount)
     {
-        $this->amount = 0;
-        foreach($this->getTickets() as $ticket) {
+        $this->amount += $amount;
+      /*
+      $this->amount = 0;
+      foreach($this->getTickets() as $ticket) {
             $this->amount += $ticket->getPrice();
-        }
+        }*/
         return $this;
     }
 }

@@ -8,12 +8,12 @@ $.fn.datepicker.dates['fr'] = {
     monthsShort: ['Janv.', 'Févr.', 'Mars', 'Avril', 'Mai', 'Juin', 'Juil.', 'Août', 'Sept.', 'Oct.', 'Nov.', 'Déc.'],
     today: "Aujourd'hui",
     clear: "Effacer",
-    format: "dd/mm/yyyy",
+    format: "dd-mm-yyyy",
     titleFormat: "MM yyyy", /* Leverages same syntax as 'format' */
     weekStart: 0
 };
 
 $('.datepicker').datepicker({
     language: "fr",
-    autoclose:true
+    autoclose: true
 });

@@ -32,10 +32,6 @@ class BookingController extends Controller {
     }
 
     public function bookingAction(Request $request) {
-        /*$content = $this->get('templating')
-                        ->render('LouvreBookingBundle:Booking:booking.html.twig'
-            );
-        return new Response($content); */
 
         $orderOfTickets = new OrderOfTickets();
 
@@ -45,13 +41,24 @@ class BookingController extends Controller {
         if ($request->isMethod('POST')
             && $form->handleRequest($request)
                     ->isValid()) {
-        var_dump(($request));
+            $tickets = $orderOfTickets->getTickets();
+
+            $amount = 0;
+            foreach ($tickets as $ticket){
+                $amount +=  $ticket->getPrice();
+           //     var_dump($amount);
+            }
+            $orderOfTickets->setAmount($amount);
+    //var_dump($request);
             $em = $this->getDoctrine()->getManager();
             $em->persist($orderOfTickets);
+
             $em->flush();
 
             $request->getSession()->getFlashBag()
                     ->add('notice', 'Billet bien enregistré.');
+
+            //envoyer un e-mail de confirmation de commande
 
             return $this->redirectToRoute('louvre_booking_page', array(
                     'id' => $orderOfTickets->getId()));

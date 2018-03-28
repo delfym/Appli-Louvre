@@ -1,0 +1,65 @@
+
+        {% set prototype_ticket = form.tickets.vars.prototype %}
+
+        <h5 class="mt-2 mb-3">Billet n°1</h5>
+        <span class="form-inline">
+            {{ form_label(prototype_ticket.ticketDate, "Date de votre visite",
+                {'label_attr': {'class': 'ml-1 pr-2 col-lg-2 '}}) }}
+
+            {{ form_widget(prototype_ticket.ticketDate,
+                {'attr': {'class': 'datepicker mb-2 col-lg-3 col-sm-12', 'data-date-start-date' : "0d"}}) }}
+            {{ form_errors(prototype_ticket.ticketDate) }}
+
+            {{ form_label(prototype_ticket.ticketType, "Type de billet",
+                {'label_attr': {'class': 'ml-1 pr-2 col-lg-3 '}}) }}
+            {{ form_widget(prototype_ticket.ticketType,
+                {'attr': {'class': 'mb-3 col-lg-3 col-sm-12'}}) }}
+            {{ form_errors(prototype_ticket.ticketType) }}
+
+       </span>
+
+        <span class="form-inline">
+            {{ form_label(prototype_ticket.visitor.firstName, "Votre prénom",
+                {'label_attr': {'class': 'ml-2 pr-2 col-lg-2'}}) }}
+            {{ form_widget(prototype_ticket.visitor.firstName,
+                {'attr': {'class': 'mb-3 col-3 col-sm-12 col-lg-3'}}) }}
+            {{ form_errors(prototype_ticket.visitor.firstName) }}
+
+            {{ form_label(prototype_ticket.visitor.name, "Votre nom",
+                {'label_attr': {'class': 'ml-1 pr-2 col-lg-3'}}) }}
+            {{ form_widget(prototype_ticket.visitor.name,
+                {'attr': {'class': 'mb-3 col-sm-12 col-lg-3'}}) }}
+            {{ form_errors(prototype_ticket.visitor.name) }}
+        </span>
+        <span class="form-inline">
+                {{ form_label(prototype_ticket.visitor.birthDate, "Votre date de naissance",
+                    {'label_attr': {'class': 'ml-1 pr-2 col-lg-2'}}) }}
+            {{ form_widget(prototype_ticket.visitor.birthDate,
+                {'attr': {'class': 'mb-3 col-sm-4 col-lg-4 col-sm-12'}}) }}
+            {{ form_errors(prototype_ticket.visitor.birthDate) }}
+
+            {{ form_label(prototype_ticket.visitor.country, "Votre pays",
+                {'label_attr': {'class': 'col-lg-2 pl-1'}}) }}
+            {{ form_widget(prototype_ticket.visitor.country,
+                {'attr': {'class': 'mb-3 col-lg-3 col-sm-12'}}) }}
+            {{ form_errors(prototype_ticket.visitor.country) }}
+        </span>
+
+      {{   dump (prototype_ticket) }}
+
+        {{ form_widget(prototype_ticket.price,
+            {'attr': {'class': 'mb-3 col-lg-3 col-sm-12'}}) }}
+
+
+       {# {{ prototype_ticket.price }} #}
+
+        <span class="form-inline">
+        </span>
+
+        <span>
+
+            {{ form_label(prototype_ticket.reduction, "Tarif réduit",
+                {'label_attr': {'class': 'ml-1 col-lg-2'}}) }}
+            {{ form_widget(prototype_ticket.reduction,
+                {'attr': {'class': 'mb-3 mt-3 col-sm-1 col-lg-5 col-sm-12'}}) }}
+        </span>
