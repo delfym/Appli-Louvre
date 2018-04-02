@@ -24,6 +24,12 @@ class OrderOfTickets
 
 
     /**
+     * @ORM\OneToMany(targetEntity="Louvre\BookingBundle\Entity\Ticket",
+    mappedBy="orderOfTickets", cascade={"persist"})
+     */
+    private $tickets;
+
+    /**
      * @var int
      *
      * @ORM\Id
@@ -57,20 +63,27 @@ class OrderOfTickets
      */
     private $amount;
 
+    /** @var @var string
+     *
+     * @ORM\Column(name="bookingCode", type="string")
+     * @Assert\Type(type="string")
+     */
+    private $bookingCode;
+
+    /**
+     *
+     * @ORM\Column(name="ticketDate", type="datetime")
+     *
+     */
+    private $ticketDate;
+
     /**
      * @var string
      *
-     * @ORM\Column(name="email", type="string", length=50)
-     * @Assert\Email()
+     * @ORM\Column(name="ticketType", type="string")
+     * @Assert\NotBlank()
      */
-    private $email;
-
-    /**
-     * @ORM\OneToMany(targetEntity="Louvre\BookingBundle\Entity\Ticket",
-    mappedBy="orderOfTickets", cascade={"persist"})
-     */
-    private $tickets;
-
+    private $ticketType;
 
     public function __construct()
     {
@@ -171,30 +184,6 @@ class OrderOfTickets
     {
         return $this->ticketsQuantity;
     }
-    
-    /**
-     * Get email.
-     *
-     * @return string
-     */
-    public function getEmail()
-    {
-        return $this->email;
-    }
-
-    /**
-     * Set email.
-     *
-     * @param string $email
-     *
-     * @return Visitor
-     */
-    public function setEmail($email)
-    {
-        $this->email = $email;
-
-        return $this;
-    }
 
     /**
      * Add ticket.
@@ -207,7 +196,6 @@ class OrderOfTickets
     {
         $this->tickets[] = $ticket;
         $ticket->setOrderOfTickets($this);
-
         return $this;
     }
 
@@ -250,5 +238,81 @@ class OrderOfTickets
             $this->amount += $ticket->getPrice();
         }*/
         return $this;
+    }
+
+    /**
+     * Set bookingCode.
+     *
+     * @param \Datetime $bookingDate
+     * @param integer $bookingQty
+     * @param integer $bookingId
+     * @return OrderOfTickets
+     */
+    public function setBookingCode($bookingDate, $bookingQty, $bookingId)
+    {
+        $bookingDate = $bookingDate->format('d-M-y');
+        $bookingQty = strval($bookingQty);
+        $bookingId = $this->getId();
+        $bookingLetter = substr($this->getVisitor()->getName(), 0,2);
+        $this->bookingCode = $bookingDate . '-' . $bookingQty . '-' . $bookingId . $bookingLetter;
+        return $this;
+    }
+
+    /**
+     * Get bookingCode.
+     *
+     * @return string
+     */
+    public function getBookingCode()
+    {
+        return $this->bookingCode;
+    }
+
+    /**
+     * Set ticketDate.
+     *
+     * @param \DateTime $ticketDate
+     *
+     * @return OrderOfTickets
+     */
+    public function setTicketDate($ticketDate)
+    {
+        $this->ticketDate = $ticketDate;
+
+        return $this;
+    }
+
+    /**
+     * Get ticketDate.
+     *
+     * @return \DateTime
+     */
+    public function getTicketDate()
+    {
+        return $this->ticketDate;
+    }
+
+    /**
+     * Set ticketType.
+     *
+     * @param string $ticketType
+     *
+     * @return OrderOfTickets
+     */
+    public function setTicketType($ticketType)
+    {
+        $this->ticketType = $ticketType;
+
+        return $this;
+    }
+
+    /**
+     * Get ticketType.
+     *
+     * @return string
+     */
+    public function getTicketType()
+    {
+        return $this->ticketType;
     }
 }

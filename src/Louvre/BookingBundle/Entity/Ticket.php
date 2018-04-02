@@ -44,27 +44,13 @@ class Ticket
      * @ORM\Column(name="price", type="decimal", precision=4, scale=2)
      * @Assert\NotBlank()
      */
-    private $price = 11.11;
+    private $price;
 
     /**
      * @var boolean
      */
     private $reduction;
 
-    /**
-     *
-     * @ORM\Column(name="ticketDate", type="datetime")
-     *
-     */
-    private $ticketDate;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="ticketType", type="string")
-     * @Assert\NotBlank()
-     */
-    private $ticketType;
 
     /**
      * Get id.
@@ -85,12 +71,12 @@ class Ticket
      */
     public function setPrice($price)
     {
-        if(null != $this->reduction) {
+        if(true === $this->reduction) {
             $this->price = $price - 10;
         } else {
             $this->price = $price;
-         }
-        return $this;
+        }
+            return $this;
     }
 
     /**
@@ -102,55 +88,7 @@ class Ticket
     {
         return $this->price;
     }
-
-    /**
-     * Set ticketDate.
-     *
-     * @param \DateTime $ticketDate
-     *
-     * @return Ticket
-     */
-    public function setTicketDate($ticketDate)
-    {
-        $this->ticketDate = $ticketDate;
-        return $this;
-    }
-
-    /**
-     * Get ticketDate.
-     *
-     * @return \dateTime
-     */
-    public function getTicketDate()
-    {
-        return $this->ticketDate;
-    }
-
-    /**
-     * Set ticketType.
-     *
-     * @param string $ticketType
-     *
-     * @return Ticket
-     */
-    public function setTicketType($ticketType)
-    {
-       // $ticketType = date($ticketType);
-        $this->ticketType = $ticketType;
-
-        return $this;
-    }
-
-    /**
-     * Get ticketType.
-     *
-     * @return string
-     */
-    public function getTicketType()
-    {
-        return $this->ticketType;
-    }
-
+    
     /**
      * Set visitor.
      *

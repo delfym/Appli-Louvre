@@ -41,15 +41,23 @@ class BookingController extends Controller {
         if ($request->isMethod('POST')
             && $form->handleRequest($request)
                     ->isValid()) {
-            $tickets = $orderOfTickets->getTickets();
 
+            $tickets = $orderOfTickets->getTickets();
             $amount = 0;
-            foreach ($tickets as $ticket){
-                $amount +=  $ticket->getPrice();
-           //     var_dump($amount);
+            foreach ($tickets as $ticket) {
+                $rateChoice = $this->get('louvre_booking.ratechoice');
+                $rate = $rateChoice->rate($ticket->getVisitor()->getBirthDate());
+                $ticket->setPrice($rate);
+                $amount += $rate;
             }
+
             $orderOfTickets->setAmount($amount);
-    //var_dump($request);
+//Création du code de réservation :
+            $orderOfTickets->setBookingCode(
+                $orderOfTickets->getPurchaseDate(),
+                $orderOfTickets->getTicketsQuantity(),
+                $orderOfTickets->getId());
+
             $em = $this->getDoctrine()->getManager();
             $em->persist($orderOfTickets);
 
@@ -60,12 +68,11 @@ class BookingController extends Controller {
 
             //envoyer un e-mail de confirmation de commande
 
-            return $this->redirectToRoute('louvre_booking_page', array(
-                    'id' => $orderOfTickets->getId()));
+            return $this->redirectToRoute('louvre_booking_page');
         }
 
         return $this->render('LouvreBookingBundle:Booking:booking.html.twig', array(
-            'form' => $form->createView(),
+            'form' => $form->createView()
         ));
     }
 

@@ -45,6 +45,13 @@ class Visitor
     private $birthDate;
 
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="email", type="string", length=50)
+     * @Assert\Email()
+     */
+    private $email;
 
     /**
      * @var string
@@ -160,5 +167,29 @@ class Visitor
     public function getCountry()
     {
         return $this->country;
+    }
+
+    /**
+     * Set email.
+     *
+     * @param string $email
+     *
+     * @return Visitor
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    /**
+     * Get email.
+     *
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->email;
     }
 }

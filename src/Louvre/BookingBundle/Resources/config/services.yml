@@ -1,4 +1,16 @@
 services:
+    louvre_booking.ratechoice:
+        class: Louvre\BookingBundle\RateChoice\LouvreRateChoice
+        arguments: [
+            $normal: '%normal%',
+            $enfant: '%enfant%',
+            $senior: '%senior%'
+           ]
 #    louvre_booking.example:
 #        class: Louvre\BookingBundle\Example
 #        arguments: ["@service_id", "plain_value", "%parameter%"]
+
+parameters:
+    normal: 16
+    enfant: 8
+    senior: 12
