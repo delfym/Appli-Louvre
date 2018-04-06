@@ -17,11 +17,14 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class BookingController extends Controller {
+
+    private $tickets;
 
     public function indexAction(){
         $content = $this->get('templating')->render('LouvreBookingBundle:Booking:index.html.twig',
@@ -31,13 +34,24 @@ class BookingController extends Controller {
         return new Response($content);
     }
 
+    public function updateAction(Request $request){
+        if ($request->isXmlHttpRequest()){
+            $rateChoice = $this->get('louvre_booking.ratechoice');
+            $rate = $rateChoice->rate($_POST["birthDay"]);
+
+            return new JsonResponse($rate);
+        }
+    }
+
     public function bookingAction(Request $request) {
 
         $orderOfTickets = new OrderOfTickets();
+        $this->tickets = $orderOfTickets;
 
         $form = $this->get('form.factory')
                      ->create(OrderOfTicketsType::class, $orderOfTickets);
 
+        /**************  requête POST  *********/
         if ($request->isMethod('POST')
             && $form->handleRequest($request)
                     ->isValid()) {
@@ -76,26 +90,5 @@ class BookingController extends Controller {
         ));
     }
 
-    public function addAction(Request $request) {
-      //  $ticket = new Ticket();
-        $orderOfTickets = new OrderOfTickets();
-    //    $visitor = new Visitor();
-
-
-        $form = $this->get('form.factory')
-            ->create(OrderOfTicketsType::class, $orderOfTickets);
-
-        $form
-            ->add('ticketDate', DateType::class)
-            ->add('ticketType', ChoiceType::class)
-            ->add('save',       SubmitType::class);
-
-        $form = $form->getForm();
-
-        return $this->render('LouvreBookingBundle:Booking:add.html.twig', array(
-            'form' => $form->createView(),
-        ));
-
-    }
 
 }

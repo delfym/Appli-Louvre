@@ -11,3 +11,11 @@ louvre_booking_page:
     path:     /booking
     defaults:
         _controller: LouvreBookingBundle:Booking:booking
+
+louvre_booking_update:
+    path:    /update/{birthdate}
+    defaults:
+        _controller: LouvreBookingBundle:Booking:update
+        birthdate: 01/01/1970
+    requirements:
+        birthdate: \birthdate+
