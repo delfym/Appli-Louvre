@@ -17,11 +17,13 @@
             {{ form_errors(prototype_ticket.visitor.name) }}
         </span>
         <span class="form-inline">
-            {{ form_label(prototype_ticket.visitor.birthDate, "Votre date de naissance",
-                    {'label_attr': {'class': 'pr-2 col-lg-2'}}) }}
-            {{ form_widget(prototype_ticket.visitor.birthDate,
-                {'attr': {'class': 'birthdate mb-3 col-sm-4 col-lg-4 col-sm-12'}}) }}
-            {{ form_errors(prototype_ticket.visitor.birthDate) }}
+            <span class="myBirth form-inline">
+                {{ form_label(prototype_ticket.visitor.birthDate, "Votre date de naissance",
+                        {'label_attr': {'class': 'pr-2 col-lg-2'}}) }}
+                {{ form_widget(prototype_ticket.visitor.birthDate,
+                    {'attr': {'class': 'mb-3 col-sm-4 col-lg-4 col-sm-12'}}) }}
+            </span>
+                {{ form_errors(prototype_ticket.visitor.birthDate) }}
 
             {{ form_label(prototype_ticket.visitor.country, "Votre pays",
                 {'label_attr': {'class': 'col-lg-2 pl-1'}}) }}

@@ -14,5 +14,8 @@ $.fn.datepicker.dates['fr'] = {
 };
 
 $('.datepicker').datepicker({
-    language: "fr"
+    language: "fr",
+    daysOfWeekDisabled: "0,2",
+    datesDisabled: ['02-05-2018', '01-11-2018', '25-12-2018', '02-05-2019', '01-11-2019', '25-12-2019']
+
 });

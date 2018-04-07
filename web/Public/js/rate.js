@@ -1,43 +1,27 @@
 var birthDay;
-var birthMonth;
-var birthYear;
 var birthDate;
 
-
-
-$('#louvre_bookingbundle_orderoftickets_tickets_0_visitor_birthDate_day')
-    .change(function (e)
-        {
-            birthDay = $('#louvre_bookingbundle_orderoftickets_tickets_0_visitor_birthDate_day').val();
-            //console.log('birthDay : ' + birthDay);
-        }
-    );
-
-$('#louvre_bookingbundle_orderoftickets_tickets_0_visitor_birthDate_month')
-    .change(function (e)
-        {
-            birthMonth = $('#louvre_bookingbundle_orderoftickets_tickets_0_visitor_birthDate_month').val();
-            //console.log('birthMonth : ' + birthMonth);
-        }
-    );
-
-$('#louvre_bookingbundle_orderoftickets_tickets_0_visitor_birthDate_year')
-    .change(function (e)
+  $('.myBirth select').change(function (e) {
+    var test = $(this).val();
+    var test2 = $('.myBirth select:nth-child(1)').val();
+    var test3 = $('.myBirth select:nth-child(2)').val();
+    var test4 = $('.myBirth select:nth-child(3)').val();
+    if(test2 <= 9)
     {
-        birthYear = $('#louvre_bookingbundle_orderoftickets_tickets_0_visitor_birthDate_year').val();
-        //console.log('birthYear : ' + birthYear);
+      test2 = '0'+test2;
+    }
+    if(test3 <= 9)
+    {
+        test3 = '0' + test3;
+    }
+    birthDate = test2 + '-' + test3 +'-' + test4;
 
-        if(null == birthMonth){
-            birthMonth = '1';
-        }
-        if(null == birthDay){
-            birthDay = '1';
-        }
-        birthDate = '0'+ birthDay + '-0' + birthMonth + '-' + birthYear;
-        //console.log(birthDate);
+      console.log('je suis dans un select ' + test);
+      console.log('je suis dans un select ' + test2 + ' ' +test3 + ' ' + test4);
+      console.log(birthDate);
 
 
-// ************* req AJAX ******************************** //
+// ************* req AJAX ********************************
 
         var url = 'http://localhost:8888/Appli-Louvre/web/app_dev.php/louvre_booking/update';
         $.post(url, {birthDay : birthDate},
@@ -47,4 +31,4 @@ $('#louvre_bookingbundle_orderoftickets_tickets_0_visitor_birthDate_year')
             })
             .fail('zut');
 
-    });
+  });
