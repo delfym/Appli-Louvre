@@ -41,6 +41,7 @@ class Visitor
      *
      * @ORM\Column(name="birthDate", type="date")
      * @Assert\Date()
+     * @Assert\NotBlank()
      */
     private $birthDate;
 

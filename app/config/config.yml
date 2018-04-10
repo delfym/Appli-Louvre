@@ -71,3 +71,7 @@ swiftmailer:
     password: '%mailer_password%'
     spool: { type: memory }
 
+# Stripe Configuration
+flosch_stripe:
+    stripe_api_key: " % stripe_api_key% "
+

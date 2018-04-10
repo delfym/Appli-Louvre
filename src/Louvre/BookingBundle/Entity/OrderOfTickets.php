@@ -85,6 +85,13 @@ class OrderOfTickets
      */
     private $ticketType;
 
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="payment", type="boolean")
+     */
+    private $payment;
+
     public function __construct()
     {
         $this->purchaseDate = new \DateTime();
@@ -314,5 +321,29 @@ class OrderOfTickets
     public function getTicketType()
     {
         return $this->ticketType;
+    }
+
+    /**
+     * Set payment.
+     *
+     * @param bool $payment
+     *
+     * @return OrderOfTickets
+     */
+    public function setPayment($payment)
+    {
+        $this->payment = $payment;
+
+        return $this;
+    }
+
+    /**
+     * Get payment.
+     *
+     * @return bool
+     */
+    public function getPayment()
+    {
+        return $this->payment;
     }
 }

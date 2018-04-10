@@ -19,3 +19,8 @@ louvre_booking_update:
         birthdate: 01/01/1970
     requirements:
         birthdate: \birthdate+
+
+louvre_booking_prepare:
+    path:     /prepare
+    defaults:
+        _controller: LouvreBookingBundle:Booking:prepare

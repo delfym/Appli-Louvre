@@ -90,5 +90,48 @@ class BookingController extends Controller {
         ));
     }
 
+    public function prepareAction($chargeAmount, $chargeCurrency, $stripeAccountId, $applicationFee, $chargeDescription, $paymentToken) {
+        $stripeClient = $this->get('my.stripe.client');
+        $paymentToken = $_POST['stripeToken'];
+        $stripeClient->createCharge($chargeAmount, $chargeCurrency,
+            $paymentToken, $applicationFee, $chargeDescription);
+
+        return $this->render('LouvreBookingBundle:Booking:prepare.html.twig');
+    }
+
+    /*
+       /**
+        * @Route(
+        *     "/checkout",
+        *     name="order_checkout",
+        *     methods="POST"
+        * )
+        * @param Request $request
+        * @return \Symfony\Component\HttpFoundation\RedirectResponse
+        */
+     public function checkoutAction(Request $request)
+     {
+ // Set your secret key: remember to change this to your live secret key in production
+ // See your keys here: https://dashboard.stripe.com/account/apikeys
+     //    \Stripe\Stripe::setApiKey("sk_test_BQokikJOvBiI2HlWgH4olfQ2");
+
+        // $stripeClient = $this->get('flosch.stripe.client');
+         $stripeClient = $this->get('my.stripe.client', $request);
+         if ($request->isMethod(POST)){
+
+         }
+         /**
+          * $chargeAmount (int)              : The charge amount in cents, for instance 1000 for 10.00 (of the currency)
+          * $chargeCurrency (string)         : The charge currency (for instance, "eur")
+          * $paymentToken (string)           : The payment token obtained using the Stripe.js library
+          * $stripeAccountId (string|null)   : (optional) The connected string account ID, default null (--> charge to the platform)
+          * $applicationFee (int)            : The amount of the application fee (in cents), default to 0
+          * $chargeDescription (string)      : (optional) The charge description for the customer
+          */
+       //  $stripeClient->createCharge($chargeAmount, 'eur', $paymentToken, $applicationFee, $chargeDescription);
+ // Token is created using Checkout or Elements!
+ // Get the payment token ID submitted by the form:
+
+     }
 
 }
