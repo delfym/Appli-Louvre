@@ -90,13 +90,13 @@ class BookingController extends Controller {
         ));
     }
 
-    public function prepareAction($chargeAmount, $chargeCurrency, $stripeAccountId, $applicationFee, $chargeDescription, $paymentToken) {
+    public function prepareAction() {
         $stripeClient = $this->get('my.stripe.client');
-        $paymentToken = $_POST['stripeToken'];
-        $stripeClient->createCharge($chargeAmount, $chargeCurrency,
-            $paymentToken, $applicationFee, $chargeDescription);
+        $this->get('flosch_stripe', 'sk_test_w6uF3kR1ABIF0p4wkk0evG8E');
+        //$key = $stripeClient->stripeApiKey;
+        $amount = "1000";
 
-        return $this->render('LouvreBookingBundle:Booking:prepare.html.twig');
+        return $this->render('LouvreBookingBundle:Booking:prepare.html.twig', ['key'=>$key,'amount' => $amount]);
     }
 
     /*
@@ -111,27 +111,22 @@ class BookingController extends Controller {
         */
      public function checkoutAction(Request $request)
      {
- // Set your secret key: remember to change this to your live secret key in production
- // See your keys here: https://dashboard.stripe.com/account/apikeys
-     //    \Stripe\Stripe::setApiKey("sk_test_BQokikJOvBiI2HlWgH4olfQ2");
+         var_dump($request);
+         try {
+             $stripeClient = $this->get('my.stripe.client');
+             $paymentToken = $_POST['stripeToken'];
 
-        // $stripeClient = $this->get('flosch.stripe.client');
-         $stripeClient = $this->get('my.stripe.client', $request);
-         if ($request->isMethod(POST)){
+             $stripeClient->createCharge($request);
+// die();
+             $this->addFlash("paiement réussi", "paiement réussi  :-)");
+         } catch (\Stripe\Error\Card $e) {
+             $this->addFlash("error", "Snif ça marche pas :(");
 
+             return $this->redirectToRoute("prepare");
          }
-         /**
-          * $chargeAmount (int)              : The charge amount in cents, for instance 1000 for 10.00 (of the currency)
-          * $chargeCurrency (string)         : The charge currency (for instance, "eur")
-          * $paymentToken (string)           : The payment token obtained using the Stripe.js library
-          * $stripeAccountId (string|null)   : (optional) The connected string account ID, default null (--> charge to the platform)
-          * $applicationFee (int)            : The amount of the application fee (in cents), default to 0
-          * $chargeDescription (string)      : (optional) The charge description for the customer
-          */
-       //  $stripeClient->createCharge($chargeAmount, 'eur', $paymentToken, $applicationFee, $chargeDescription);
- // Token is created using Checkout or Elements!
- // Get the payment token ID submitted by the form:
 
      }
+
+
 
 }
