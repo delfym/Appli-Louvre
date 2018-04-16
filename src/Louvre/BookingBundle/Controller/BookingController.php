@@ -47,12 +47,8 @@ class BookingController extends Controller {
         if($request->isXmlHttpRequest()){
             $repository = $this->getDoctrine()
                 ->getManager()
-                ->getRepository('LouvreBookingBundle:OrderOfTickets')
-                ;
-
+                ->getRepository('LouvreBookingBundle:OrderOfTickets');
             $available = $repository->countTickets($_POST["visitDate"]);
-            var_dump($available);
-
             return new JsonResponse($available);
         }
     }
@@ -62,7 +58,6 @@ class BookingController extends Controller {
         $orderOfTickets = new OrderOfTickets();
         $this->tickets = $orderOfTickets;
 
-//echo 'je suis ds avant si form post<br/>';
         $form = $this->get('form.factory')
                      ->create(OrderOfTicketsType::class, $orderOfTickets);
 
@@ -128,7 +123,7 @@ class BookingController extends Controller {
         */
      public function checkoutAction(Request $request)
      {
-         var_dump($request);
+         //var_dump($request);
          try {
              $stripeClient = $this->get('my.stripe.client');
              $paymentToken = $_POST['stripeToken'];
