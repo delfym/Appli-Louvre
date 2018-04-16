@@ -20,6 +20,14 @@ louvre_booking_update:
     requirements:
         birthdate: \birthdate+
 
+louvre_booking_availableTickets:
+    path:    /availableTickets/{ticketDate}
+    defaults:
+        _controller: LouvreBookingBundle:Booking:availableTickets
+        ticketDate: 15/04/2018
+    requirements:
+        ticketDate: \ticketDate+
+
 louvre_booking_prepare:
     path:     /prepare
     defaults:

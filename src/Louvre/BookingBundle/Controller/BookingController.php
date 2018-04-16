@@ -43,11 +43,26 @@ class BookingController extends Controller {
         }
     }
 
+    public function availableTicketsAction(Request $request){
+        if($request->isXmlHttpRequest()){
+            $repository = $this->getDoctrine()
+                ->getManager()
+                ->getRepository('LouvreBookingBundle:OrderOfTickets')
+                ;
+
+            $available = $repository->countTickets($_POST["visitDate"]);
+            var_dump($available);
+
+            return new JsonResponse($available);
+        }
+    }
+
     public function bookingAction(Request $request) {
 
         $orderOfTickets = new OrderOfTickets();
         $this->tickets = $orderOfTickets;
 
+//echo 'je suis ds avant si form post<br/>';
         $form = $this->get('form.factory')
                      ->create(OrderOfTicketsType::class, $orderOfTickets);
 
@@ -55,6 +70,10 @@ class BookingController extends Controller {
         if ($request->isMethod('POST')
             && $form->handleRequest($request)
                     ->isValid()) {
+
+            $ticketDate = ($_POST["louvre_bookingbundle_orderoftickets"]['ticketDate']);
+            $ticketDate = \DateTime::createFromFormat('d-m-Y', $ticketDate);
+            $orderOfTickets->setTicketDate($ticketDate);
 
             $tickets = $orderOfTickets->getTickets();
             $amount = 0;
@@ -74,9 +93,7 @@ class BookingController extends Controller {
 
             $em = $this->getDoctrine()->getManager();
             $em->persist($orderOfTickets);
-
             $em->flush();
-
             $request->getSession()->getFlashBag()
                     ->add('notice', 'Billet bien enregistré.');
 

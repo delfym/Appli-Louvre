@@ -71,9 +71,9 @@ class OrderOfTickets
     private $bookingCode;
 
     /**
-     *
-     * @ORM\Column(name="ticketDate", type="datetime")
-     *
+     * @var \DateTime
+     * @ORM\Column(name="ticketDate", type="date")
+     * @Assert\DateTime()
      */
     private $ticketDate;
 
@@ -97,6 +97,7 @@ class OrderOfTickets
         $this->purchaseDate = new \DateTime();
 
         $this->tickets = new ArrayCollection();
+        $this->payment = true; // A modifier
     }
 
     /**
@@ -285,7 +286,6 @@ class OrderOfTickets
     public function setTicketDate($ticketDate)
     {
         $this->ticketDate = $ticketDate;
-
         return $this;
     }
 

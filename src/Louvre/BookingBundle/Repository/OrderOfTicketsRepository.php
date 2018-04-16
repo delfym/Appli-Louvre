@@ -10,4 +10,16 @@ namespace Louvre\BookingBundle\Repository;
  */
 class OrderOfTicketsRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function countTickets($ticketDate)
+    {
+        $ticketDate = new \DateTime($ticketDate);
+        $ticketDate = $ticketDate->format('Y-m-d');
+    var_dump($ticketDate);
+        $qb = $this->createQueryBuilder('o')
+                ->select('COUNT(o.id)')
+                ->where('o.ticketDate = :myDate')
+                ->setParameter('myDate', $ticketDate);
+var_dump($qb->getQuery()->getSingleScalarResult());
+        return $value = $qb->getQuery()->getSingleScalarResult();
+    }
 }

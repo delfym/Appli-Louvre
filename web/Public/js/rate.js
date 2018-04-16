@@ -41,8 +41,19 @@ $('.tickets').on('change', '.myBirth', function (e) {
             $(myInput).val(data);
             mathHelper.calculateTotal();
         })
-        .fail('zut');
+        .fail('La date doit être ressaisie.');
 
+});
+
+$('#louvre_bookingbundle_orderoftickets_ticketDate').change(function (e) {
+    var ticketDate = $(this).val();
+    var url = 'http://localhost:8888/Appli-Louvre/web/app_dev.php/louvre_booking/availableTickets';
+
+    $.post(url, {visitDate: ticketDate},
+        function (data) {
+            console.log(data);
+        })
+        .fail('Le nombre d\'entrées disponibles est insuffisant. Veuillez sélectionner moins de billets ou une autre date' );
 });
 
 
