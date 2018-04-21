@@ -25,7 +25,6 @@ var formAdmin = {
   disableForm:function (bool) {
       $('ul input').each(
           function (index, elem) {
-              // debugger;
               $(elem).prop('disabled', bool);
               $('select').prop('disabled', bool);
           })
@@ -67,7 +66,8 @@ $('.myForm').on('change', '#louvre_bookingbundle_orderoftickets_ticketDate', fun
             }
 
         })
-        .fail('Le nombre d\'entrées disponibles est insuffisant. Veuillez sélectionner moins de billets ou une autre date' );
+        .fail('Le nombre d\'entrées disponibles est insuffisant. ' +
+            'Veuillez sélectionner moins de billets ou une autre date' );
 });
 
 

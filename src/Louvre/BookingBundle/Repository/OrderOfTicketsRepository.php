@@ -27,9 +27,26 @@ class OrderOfTicketsRepository extends \Doctrine\ORM\EntityRepository
                 ->setParameter('myDate', $ticketDate)
                 ->getQuery()->getSingleScalarResult();
 
-        if($ticketsNumber <= 2) {
+        if($ticketsNumber <= 1000) {
             return true;
         }
         return false;
+    }
+
+    /**
+     * @param $id
+     * @return \Doctrine\ORM\QueryBuilder|mixed
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     */
+    public function getAmount($id){
+        $amount = $this->createQueryBuilder('o')
+                        ->select('o.amount')
+                        ->where('o.id = :id')
+                        ->setParameter('id', $id);
+        $amount = $amount
+            ->getQuery()
+            ->getSingleScalarResult();
+        return $amount;
+
     }
 }

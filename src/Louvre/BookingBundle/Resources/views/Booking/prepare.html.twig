@@ -1,29 +1,39 @@
 {% extends 'LouvreBookingBundle:Booking:booking.html.twig' %}
-
 {% block body %}
     <div id="wrapper">
-            <div id="status">
-                <img class="img-fluid" src="{{ asset('Public/images/logo_louvre.png') }}" alt="logo du musée du Louvre">
+        <div id="status">
+            <img class="img-fluid" src="{{ asset('Public/images/logo_louvre.png') }}" alt="logo du musée du Louvre">
+            <p>
+                Vous êtes sur le point de régler votre commande
+                {% set strAmount = amount*100 %}
+            <p class="jumbotron">
+                Le montant de votre commande s'élève à {{ amount }} € .
 
-                <p>
-                    Vous êtes sur le point de régler votre commande
+                {% for message in app.session.flashbag.get('error') %}
+                    <p>{{ message }}</p>
+                {% endfor %}
+            {% for message in app.session.flashbag.get('success') %}
+                <div class="flash-notice">
+                    {{ message }}
+                </div>
+            {% endfor %}
+            </p>
 
-                <p class="jumbotron">Le montant de votre commande s'élève à XXXX€</p>
-
-                <form action="{{ path('louvre_booking_checkout') }}" method="POST">
-                    <script
-                            src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-
-                            data-amount="{{ amount }}"
-                            data-name="Musée du Louvre"
-                            data-description="paiement de votre commande"
-                            data-image="{{ asset('Public/images/micrologo.png') }}"
-                            data-locale="auto"
-                            data-zip-code="true">
-                    </script>
-                </form>
-                </p>
-            </div>
+            <form action="{{ path('louvre_booking_checkout') }}" method="POST">
+                <script
+                        src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                        data-key="pk_test_NLme5IY5VWsCbGxn9vAWkY9A"
+                        data-amount="{{ strAmount }}"
+                        data-currency="eur"
+                        data-name="Musée du Louvre"
+                        data-image="{{ asset('Public/images/micrologo.png') }}"
+                        data-locale="auto"
+                        data-zip-code="true"
+                        data-label="Payer par carte"
+                        data-email="{{ email }}">
+                </script>
+            </form>
+            </p>
         </div>
     </div>
 {% endblock %}

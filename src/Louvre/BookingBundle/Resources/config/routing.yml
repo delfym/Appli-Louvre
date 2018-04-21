@@ -1,11 +1,8 @@
 
 louvre_booking_home:
-    path:      /{page}
+    path:      /
     defaults:
         _controller: LouvreBookingBundle:Booking:index
-        page:        1
-    requirements:
-        page: \d*
 
 louvre_booking_page:
     path:     /booking
@@ -18,22 +15,20 @@ louvre_booking_update:
         _controller: LouvreBookingBundle:Booking:update
         birthdate: 01/01/1970
     requirements:
-        birthdate: \birthdate+
+        birthdate: \d+
 
 louvre_booking_availableTickets:
-    path:    /availableTickets/{ticketDate}
+    path:    /availableTickets
     defaults:
         _controller: LouvreBookingBundle:Booking:availableTickets
-        ticketDate: 15/04/2018
-    requirements:
-        ticketDate: \ticketDate+
 
 louvre_booking_prepare:
     path:     /prepare
     defaults:
         _controller: LouvreBookingBundle:Booking:prepare
 
+
 louvre_booking_checkout:
     path:     /checkout
     defaults:
-        _controller: LouvreBookingBundle:Booking:ckeckout
+        _controller: LouvreBookingBundle:Booking:checkout

@@ -6,10 +6,6 @@ services:
 #        class: Louvre\BookingBundle\Example
 #        arguments: ["@service_id", "plain_value", "%parameter%"]
 
-    Louvre\BookingBundle\Stripe\StripeClient:
-        autowire: true
-        autoconfigure: true
-        lazy: true
-
-    my.stripe.client:
-        alias: Louvre\BookingBundle\Stripe\StripeClient
+    louvre.booking.mailer:
+        class: Louvre\BookingBundle\Mailer\Mailer
+        arguments: ["@mailer","@templating"]

@@ -11,7 +11,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  *
  * @ORM\Table(name="order_of_tickets")
  * @ORM\Entity(repositoryClass="Louvre\BookingBundle\Repository\OrderOfTicketsRepository")
- *
+ * @ORM\HasLifecycleCallbacks()
  */
 class OrderOfTickets
 {
@@ -98,6 +98,13 @@ class OrderOfTickets
 
         $this->tickets = new ArrayCollection();
         $this->payment = true; // A modifier
+    }
+
+    /**
+     * @ORM\PrePersist
+     */
+    public function validPayment(){
+        $this->setPayment('true');
     }
 
     /**
@@ -260,7 +267,6 @@ class OrderOfTickets
     {
         $bookingDate = $bookingDate->format('d-M-y');
         $bookingQty = strval($bookingQty);
-        $bookingId = $this->getId();
         $bookingLetter = substr($this->getVisitor()->getName(), 0,2);
         $this->bookingCode = $bookingDate . '-' . $bookingQty . '-' . $bookingId . $bookingLetter;
         return $this;
