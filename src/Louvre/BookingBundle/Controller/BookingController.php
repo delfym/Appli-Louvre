@@ -96,20 +96,21 @@ class BookingController extends Controller
             $em->persist($orderOfTickets);
 
             $em->flush();
+
             $id = $orderOfTickets->getId();
             $mail = $orderOfTickets->getVisitor()->getEmail();
+            $orderHolderId = $orderOfTickets->getVisitor()->getId();
 
             $request->getSession()->getFlashBag()
                 ->add('notice', 'Billet bien enregistré.');
 
 //envoyer un e-mail de confirmation de commande
-$mailer = $this->get('louvre.booking.mailer')->sendMessage($orderOfTickets);
+//$mailer = $this->get('louvre.booking.mailer')->sendMessage($orderOfTickets);
 
             //Récupération du montant de la commande pour l'affichage sur la page de paiement
              $req = $this->getDoctrine()->getManager()
                             ->getRepository('LouvreBookingBundle:OrderOfTickets');
              $amount = $req->getAmount($id);
-
              // Récupération de la session
             $session = $request->getSession();
             $session->set('amount', $amount);

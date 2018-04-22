@@ -10,4 +10,23 @@ namespace Louvre\BookingBundle\Repository;
  */
 class VisitorRepository extends \Doctrine\ORM\EntityRepository
 {
+
+    //récupérer tous les visiteurs qui appartiennent à des tickets
+    // sauf le titulaire de la commande
+
+    public function getVisitors($orderId, $orderHolderId){
+        $visitors = $this->createQueryBuilder('v')
+            ->select('v.amount')
+            ->where('v.id = :id')
+            ->setParameters(['id' => $orderId,
+                             'visitorId' => $orderHolderId
+            ]);
+        return $visitors = $visitors
+                ->getQuery()
+                ->getArrayResult();
+
+    }
+
+
+
 }

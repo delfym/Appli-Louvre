@@ -10,4 +10,18 @@ namespace Louvre\BookingBundle\Repository;
  */
 class TicketRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function getTickets($orderId, $orderHolderId)
+    {
+        $tickets = $this->createQueryBuilder('t')
+            ->innerJoin('t.visitor', 'visitor',
+                'WITH',
+                't.orderOfTickets = :id')
+            ->addSelect('visitor')
+            ->setParameter('id', $orderId
+            );
+
+        return $tickets = $tickets
+            ->getQuery()
+            ->getArrayResult();
+    }
 }

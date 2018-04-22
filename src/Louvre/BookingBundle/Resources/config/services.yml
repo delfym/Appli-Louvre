@@ -8,4 +8,4 @@ services:
 
     louvre.booking.mailer:
         class: Louvre\BookingBundle\Mailer\Mailer
-        arguments: ["@mailer","@templating"]
+        arguments: ["@mailer","@templating", "@doctrine.orm.entity_manager"]
