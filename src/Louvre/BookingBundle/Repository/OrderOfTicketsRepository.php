@@ -10,7 +10,6 @@ namespace Louvre\BookingBundle\Repository;
  */
 class OrderOfTicketsRepository extends \Doctrine\ORM\EntityRepository
 {
-
     /**
      * @param $ticketDate
      * @return bool
@@ -47,6 +46,22 @@ class OrderOfTicketsRepository extends \Doctrine\ORM\EntityRepository
             ->getQuery()
             ->getSingleScalarResult();
         return $amount;
-
     }
+
+    /**
+     * @param $id
+     * @throws \Doctrine\ORM\ORMException
+     */
+    public function updateWithPayment($id){
+        $orderToUp = $this->createQueryBuilder('o');
+        $orderToUp->update()
+                  ->set('o.payment', true)
+                  ->where('o.id = :id')
+                  ->setParameter('id', $id)
+        ;
+
+//        $orderToUp->setPayment(true);
+        $orderToUp->execute();
+    }
+
 }

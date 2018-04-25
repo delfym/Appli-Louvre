@@ -12,11 +12,6 @@
                 {% for message in app.session.flashbag.get('error') %}
                     <p>{{ message }}</p>
                 {% endfor %}
-            {% for message in app.session.flashbag.get('success') %}
-                <div class="flash-notice">
-                    {{ message }}
-                </div>
-            {% endfor %}
             </p>
 
             <form action="{{ path('louvre_booking_checkout') }}" method="POST">

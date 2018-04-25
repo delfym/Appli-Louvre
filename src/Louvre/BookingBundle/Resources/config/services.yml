@@ -9,3 +9,10 @@ services:
     louvre.booking.mailer:
         class: Louvre\BookingBundle\Mailer\Mailer
         arguments: ["@mailer","@templating", "@doctrine.orm.entity_manager"]
+
+    louvre.booking.doctrine.listener.order_of_tickets_creation:
+        class: Louvre\BookingBundle\DoctrineListener\OrderOfTicketsCreationListener
+        arguments:
+            - "@louvre.booking.mailer"
+        tags:
+            - { name: doctrine.event_listener, event: preUpdate}

@@ -22,7 +22,7 @@ class OrderOfTicketsCreationListener
         $this->orderMailer = $mailer;
     }
 
-    public function prePersist(LifecycleEventArgs $args)
+    public function preUpdate(LifecycleEventArgs $args)
     {
         $entity = $args->getObject();
 
@@ -33,4 +33,5 @@ class OrderOfTicketsCreationListener
 
         $this->orderMailer->sendMessage($entity);
     }
+
 }
