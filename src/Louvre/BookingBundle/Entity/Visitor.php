@@ -125,7 +125,7 @@ class Visitor
     /**
      * Get birthDate.
      *
-     * @return \DateTime
+     *
      */
     public function getBirthDate()
     {

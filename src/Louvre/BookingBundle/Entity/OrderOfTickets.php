@@ -95,9 +95,7 @@ class OrderOfTickets
     public function __construct()
     {
         $this->purchaseDate = new \DateTime();
-
         $this->tickets = new ArrayCollection();
-        $this->payment = true; // A modifier
     }
 
     /**

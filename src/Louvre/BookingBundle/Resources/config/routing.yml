@@ -15,6 +15,12 @@ louvre_booking_contact:
     defaults:
         _controller: LouvreBookingBundle:Booking:contact
 
+
+louvre_booking_legals:
+    path:     /legals
+    defaults:
+        _controller: LouvreBookingBundle:Booking:legals
+
 louvre_booking_update:
     path:    /update/{birthdate}
     defaults:
