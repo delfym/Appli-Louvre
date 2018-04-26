@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="{{ _charset }}" />
+        <title>An Error Occurred: {{ status_text }}</title>
+    </head>
+    <body>
+        <h1>Humm, cette page n'existe pas.</h1>
+
+        <p>
+            <a href="{{ path('louvre_booking_home') }}" class="text-dark">
+            Cliquez ici pour revenir à la page d'accueil du musée.
+            </a>
+        </p>
+    </body>
+</html>
