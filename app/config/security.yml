@@ -14,7 +14,9 @@ security:
             security: false
 
         main:
+            logout_on_user_change: true
             anonymous: ~
+
             # activate different ways to authenticate
 
             # https://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
@@ -22,3 +24,5 @@ security:
 
             # https://symfony.com/doc/current/security/form_login_setup.html
             #form_login: ~
+
+

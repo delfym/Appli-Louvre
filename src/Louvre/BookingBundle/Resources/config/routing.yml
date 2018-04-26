@@ -9,6 +9,12 @@ louvre_booking_page:
     defaults:
         _controller: LouvreBookingBundle:Booking:booking
 
+
+louvre_booking_contact:
+    path:     /contact
+    defaults:
+        _controller: LouvreBookingBundle:Booking:contact
+
 louvre_booking_update:
     path:    /update/{birthdate}
     defaults:

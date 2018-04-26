@@ -24,6 +24,7 @@
         <link rel="stylesheet" href="{{ asset('bootstrap.css') }}">
         <!-- Custom styles for this template -->
         <link rel="stylesheet" href=" {{ asset('Public/css/cover.css') }}">
+        <link rel="stylesheet" href=" {{ asset('Public/css/contact.css') }}">
     {% endblock %}
 
 </head>
@@ -38,13 +39,14 @@
             <nav class="nav nav-masthead justify-content-center">
                     <a class="nav-link" href="{{ path('louvre_booking_home') }}">Accueil</a>
                     <a class="nav-link " href="{{ path('louvre_booking_page') }}">Réserver</a>
-                    <a class="nav-link" href="#">Contact</a>
+                    <a class="nav-link" href="{{ path('louvre_booking_contact') }}">Contact</a>
             </nav>
         </div>
     </header>
 
     <section class="container col-8">
         {% block body %}
+
         {% endblock %}
     </section>
 

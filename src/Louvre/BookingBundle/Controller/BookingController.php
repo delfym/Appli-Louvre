@@ -31,6 +31,16 @@ class BookingController extends Controller
         return new Response($content);
     }
 
+
+    public function contactAction()
+    {
+        $content = $this->get('templating')->render('LouvreBookingBundle:Booking:contact.html.twig',
+            array(
+                'titre_page' => 'Musée du Louvre'
+            ));
+        return new Response($content);
+    }
+
     public function updateAction(Request $request)
     {
         if ($request->isXmlHttpRequest()) {
@@ -67,7 +77,6 @@ class BookingController extends Controller
         $form = $this->get('form.factory')
             ->create(OrderOfTicketsType::class, $orderOfTickets);
 
-        /**************  requête POST  *********/
         if ($request->isMethod('POST')
             && $form->handleRequest($request)
                 ->isValid()) {

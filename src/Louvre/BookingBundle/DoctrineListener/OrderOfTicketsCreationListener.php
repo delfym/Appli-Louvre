@@ -26,7 +26,6 @@ class OrderOfTicketsCreationListener
     {
         $entity = $args->getObject();
 
-        // On ne veut envoyer un email que pour les entités cdes
         if (!$entity instanceof OrderOfTickets) {
             return;
         }
