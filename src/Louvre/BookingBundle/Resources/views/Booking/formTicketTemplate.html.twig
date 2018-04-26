@@ -3,49 +3,55 @@
 
         <h5 class="ticketTitle mt-2 mb-3">Billet n°1</h5>
 
-        <span class="form-inline">
+        <span class="form-inline justify-content-sm-center justify-content-lg-start col-lg-12">
             {{ form_label(prototype_ticket.visitor.firstName, "Votre prénom",
-                {'label_attr': {'class': 'pr-1 col-lg-2'}}) }}
+                {'label_attr': {'class': 'col-sm-11 col-lg-2'}}) }}
             {{ form_widget(prototype_ticket.visitor.firstName,
-                {'attr': {'class': 'text-center mb-3 col-md-4 col-sm-12 col-lg-3'}}) }}
+                {'attr': {'class': 'text-center mb-3 col-lg-3 m-sm-2 col-sm-11'}}) }}
             {{ form_errors(prototype_ticket.visitor.firstName) }}
 
             {{ form_label(prototype_ticket.visitor.name, "Votre nom",
-                {'label_attr': {'class': 'ml-1 pr-2 col-lg-3'}}) }}
+                {'label_attr': {'class': 'ml-1 col-sm-12 col-lg-2'}}) }}
             {{ form_widget(prototype_ticket.visitor.name,
-                {'attr': {'class': 'text-center mb-3 col-sm-12 col-lg-3'}}) }}
+                {'attr': {'class': 'mb-lg-3 m-sm-2 col-sm-11 col-lg-3'}}) }}
             {{ form_errors(prototype_ticket.visitor.name) }}
         </span>
-        <div class="form-inline">
-            <span class="myBirth form-inline">
+        <div class="row form-inline">
+            <span class="myBirth form-inline justify-content-sm-center col-lg-6">
                 {{ form_label(prototype_ticket.visitor.birthDate, "Votre date de naissance",
-                        {'label_attr': {'class': 'col-lg-4 col-sm-2 col-md-2'}}) }}
+                        {'label_attr': {'class': 'col-lg-3 col-sm-10'}}) }}
                 {{ form_widget(prototype_ticket.visitor.birthDate,
-                    {'attr': {'class': 'mb-3 col-lg-6 col-sm-4 col-md-4'}}) }}
+                    {'attr': {'class': 'justify-content-md-center mb-3 col-lg-7 col-sm-11'}}) }}
 
                 {{ form_errors(prototype_ticket.visitor.birthDate) }}
             </span >
+            <span class="form-inline col-lg-5">
             {{ form_label(prototype_ticket.visitor.country, "Votre pays",
-                {'label_attr': {'class': 'col-lg-2 pl-1'}}) }}
+                {'label_attr': {'class': 'col-lg-3'}}) }}
             {{ form_widget(prototype_ticket.visitor.country,
-                {'attr': {'class': 'mb-3 col-lg-3 col-sm-12'}}) }}
+                {'attr': {'class': 'm-xs-2 col-sm-11 col-lg-4'}}) }}
             {{ form_errors(prototype_ticket.visitor.country) }}
+            </span>
         </div>
-        <span class="form-inline">
+        <span class="row form-inline ml-lg-2">
             {{ form_label(prototype_ticket.visitor.email, "E-mail",
                 {'label_attr': {'class': 'col-lg-2'}}) }}
             {{ form_widget(prototype_ticket.visitor.email,
-                {'attr': {'class': 'mb-3 col-lg-4 col-sm-12'}}) }}
+                {'attr': {'class': 'mb-lg-3 col-lg-3  m-sm-2  col-sm-11'}}) }}
             {{ form_errors(prototype_ticket.visitor.email) }}
 
-            {{ form_label(prototype_ticket.reduction, "Tarif réduit", {
-                'label_attr': {'class': ''}}) }}
-            {{ form_widget(prototype_ticket.reduction,
-                {'attr': {'class': 'ml-5'}}) }}
         </span>
-        <span class="form-inline">
+        <span class="row form-inline  ml-lg-2">
+
             {{ form_label(prototype_ticket.price, "Prix de votre billet",
                 {'label_attr': {'class': 'col-lg-2 pl-1'}}) }}
             {{ form_widget(prototype_ticket.price,
-                {'attr': {'class': 'price mb-3 col-lg-3 col-sm-12'}}) }}
+                {'attr': {'class': 'price mb-lg-3 col-lg-3  m-sm-2  col-sm-11'}}) }}
+
+
+            {{ form_label(prototype_ticket.reduction, "Tarif réduit", {
+                'label_attr': {'class': 'justify-content-md-center'}}) }}
+            {{ form_widget(prototype_ticket.reduction,
+                {'attr': {'class': 'ml-5  justify-content-md-center '}}) }}
         </span>
+
