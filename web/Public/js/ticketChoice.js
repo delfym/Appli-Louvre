@@ -1,4 +1,4 @@
-$('input.datepicker').change(function (e) {
+$('.myForm').on('change', 'input.datepicker', function (e) {
 
     var visitDate;
     visitDate = $(this).val();
@@ -18,6 +18,11 @@ $('input.datepicker').change(function (e) {
             .prop('disabled', true);
         $('#louvre_bookingbundle_orderoftickets_ticketType option:eq(1)')
             .prop('selected', true);
+    } else {
+        $('#louvre_bookingbundle_orderoftickets_ticketType option:eq(0)')
+            .prop('disabled', false);
+        $('#louvre_bookingbundle_orderoftickets_ticketType option:eq(1)')
+            .prop('selected', false);
     }
 });
 
