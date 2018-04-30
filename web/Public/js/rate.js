@@ -43,8 +43,8 @@ $('.tickets').on('change', '.myBirth', function (e) {
     var date = formAdmin.formatNumber(inputDayValue) + "-"
         + formAdmin.formatNumber(inputMonthValue)  + "-" + inputYearValue;
 
-    var url = 'http://localhost:8888/Appli-Louvre/web/app_dev.php/louvre_booking/update';
-    $.post(url, {birthDay: date},
+    var path = $('.myForm').attr('data-path');
+    $.post(path, {birthDay: date},
         function (data) {
             $(myInput).val(data);
             formAdmin.calculateTotal();
@@ -55,9 +55,9 @@ $('.tickets').on('change', '.myBirth', function (e) {
 
 $('.myForm').on('change', '#louvre_bookingbundle_orderoftickets_ticketDate', function (e) {
     var ticketDate = $(this).val();
-    var url = 'http://localhost:8888/Appli-Louvre/web/app_dev.php/louvre_booking/availableTickets';
-
-    $.post(url, {visitDate: ticketDate},
+   // var url = 'http://localhost:8888/Appli-Louvre/web/app_dev.php/louvre_booking/availableTickets';
+    var path = $('.available').attr('data-path');
+    $.post(path, {visitDate: ticketDate},
         function (data) {
             if (data == false) {
                formAdmin.disableForm(true);
@@ -68,6 +68,17 @@ $('.myForm').on('change', '#louvre_bookingbundle_orderoftickets_ticketDate', fun
         })
         .fail('Le nombre d\'entrées disponibles est insuffisant. ' +
             'Veuillez sélectionner moins de billets ou une autre date' );
+});
+
+$('.myForm').on('change','input[type=checkbox]', function (e) {
+    console.log(e);
+    if( e.target.checked == true ) {
+        console.log('j\'y suis');
+        var price = $(e.target).closest(".myTicket").find("input.price");
+        var newPrice = (price.val()/2);
+        $(price).val(newPrice);
+        formAdmin.calculateTotal();
+    }
 });
 
 
