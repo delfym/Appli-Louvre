@@ -98,10 +98,16 @@ class BookingController extends Controller
             foreach ($tickets as $ticket) {
                 $rateChoice = $this->get('louvre_booking.ratechoice');
                 $rate = $rateChoice->rate($ticket->getVisitor()->getBirthDate());
+
+                if (($ticket->getReduction() == true) && ($rate == 16)) {
+                    $rate = $rate - 10;
+                }
                 $ticket->setPrice($rate);
                 $amount += $rate;
             }
-
+            if($orderOfTickets->getTicketType() == 1){
+                $amount= $amount/2;
+            }
             $orderOfTickets->setAmount($amount);
             $orderOfTickets->setBookingCode(
                 $orderOfTickets->getPurchaseDate(),
@@ -118,14 +124,14 @@ class BookingController extends Controller
             $request->getSession()->getFlashBag()
                 ->add('notice', 'Billet bien enregistré.');
 
-             // Récupération de la session
+            // Récupération de la session
             $session = $request->getSession();
             $session->set('amount', $repo->getAmount($id));
             $session->set('orderId', $id);
 
             return $this->render('LouvreBookingBundle:Booking:prepare.html.twig',
                 array('amount' => $amount,
-                      'email' => $mail));
+                    'email' => $mail));
         }
 
         return $this->render('LouvreBookingBundle:Booking:booking.html.twig', array(
@@ -155,24 +161,24 @@ class BookingController extends Controller
     public function checkoutAction(Request $request)
     {
         $session = $request->getSession();
-        $amount = ($session->get('amount')*100);
+        $amount = ($session->get('amount') * 100);
 
         $token = $_POST['stripeToken'];
 
         try {
             $stripeClient = $this->get('flosch.stripe.client');
             $stripeClient->createCharge($amount, 'eur', $token, null, 0,
-                            'Votre paiement de billetterie');
+                'Votre paiement de billetterie');
 
-            $em =$this->getDoctrine()->getManager();
+            $em = $this->getDoctrine()->getManager();
             $orderToUpdate = $em->getRepository('LouvreBookingBundle:OrderOfTickets')
-                                  ->find($session->get('orderId'));
+                ->find($session->get('orderId'));
             $orderToUpdate->setPayment(true);
             $em->flush();
 
             return $this->redirectToRoute("louvre_booking_home");
 
-        } catch (HttpRequestException $exception){
+        } catch (HttpRequestException $exception) {
 
             $this->addFlash("error", "Votre paiement n'a pas abouti. 
                                     Merci de bien vouloir refaire un essai");

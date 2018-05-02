@@ -16,7 +16,7 @@ class Ticket
 {
     /**
      * @ORM\OneToOne(targetEntity="Visitor",
-         cascade={"persist"})
+    cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
      * @Assert\NotBlank()
      */
@@ -71,12 +71,8 @@ class Ticket
      */
     public function setPrice($price)
     {
-        if(true === $this->reduction) {
-            $this->price = $price - 10;
-        } else {
-            $this->price = $price;
-        }
-            return $this;
+        $this->price = $price;
+        return $this;
     }
 
     /**
@@ -88,7 +84,7 @@ class Ticket
     {
         return $this->price;
     }
-    
+
     /**
      * Set visitor.
      *
