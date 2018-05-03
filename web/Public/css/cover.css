@@ -132,3 +132,11 @@ body {
     font-style: italic;
     font-size: 11px;
 }
+
+@media all and (max-width: 744px){
+    .jumbotron {
+        background-color: rgba(255, 255, 255, .5);
+        color: #333;
+        height: auto;
+    }
+}

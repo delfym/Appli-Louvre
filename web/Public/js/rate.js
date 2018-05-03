@@ -1,7 +1,6 @@
 var formAdmin = {
     calculateTotal: function () {
         var total = 0;
-
         $('input.price').each(
             function (index, elem) {
                 var price = $(elem).val();
@@ -11,7 +10,6 @@ var formAdmin = {
             }
         );
         $('.total').val(total);
-
         return total;
     },
     formatNumber: function (num) {
@@ -66,7 +64,6 @@ $('.myForm').on('change', '#louvre_bookingbundle_orderoftickets_ticketDate', fun
             } else {
                 formAdmin.disableForm(false);
             }
-
         })
         .fail('Le nombre d\'entrées disponibles est insuffisant. ' +
             'Veuillez sélectionner moins de billets ou une autre date');
@@ -74,7 +71,6 @@ $('.myForm').on('change', '#louvre_bookingbundle_orderoftickets_ticketDate', fun
 
 $('.myForm').on('change', 'input[type=checkbox]', function (e) {
     var price = $(e.target).closest(".myTicket").find("input.price");
-    console.log(price);
 
     if ((e.target.checked == true) && (price.val() == 16)) {
         var newPrice = price.val() - 10;
