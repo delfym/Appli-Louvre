@@ -6,10 +6,10 @@
 
 {% block body %}
 
-    <section class="mt-5">
+    <section class="mt-5 mb-4">
         <h5>Tarifs des visites</h5>
 
-        <table class="table table-stripe">
+        <table class="table table-stripe text">
             <tbody>
                 <tr>
                     <th scope="row">Type de billet</th>
@@ -40,7 +40,7 @@
         </table>
     </section>
 
-    <section class="jumbotron d-flex flex-column justify-content-center mb-4">
+    <section class="jumbotron d-flex flex-column justify-content-center m-4">
         <h5>Horaires d'ouverture</h5>
 
         <p>Le musée est ouvert tous les jours, sauf le mardi <br/>
@@ -49,8 +49,7 @@
     </section>
 
     <section class="flex-row d-flex justify-content-center mb-5">
-        <h5 class="pr-4">Réserver vos billets</h5>
-        <button class="btn-md">Réserver dès maintenant</button>
+        <a type="button" class="btn-md btn-light p-1" href="{{ path('louvre_booking_page')}}">Réserver dès maintenant</a>
     </section>
 
 {% endblock %}

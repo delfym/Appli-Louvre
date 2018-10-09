@@ -24,6 +24,7 @@
         <link rel="stylesheet" href="{{ asset('bootstrap.css') }}">
         <!-- Custom styles for this template -->
         <link rel="stylesheet" href=" {{ asset('Public/css/cover.css') }}">
+        <link rel="stylesheet" href=" {{ asset('Public/css/contact.css') }}">
     {% endblock %}
 
 </head>
@@ -38,19 +39,21 @@
             <nav class="nav nav-masthead justify-content-center">
                     <a class="nav-link" href="{{ path('louvre_booking_home') }}">Accueil</a>
                     <a class="nav-link " href="{{ path('louvre_booking_page') }}">Réserver</a>
-                    <a class="nav-link" href="#">Contact</a>
+                    <a class="nav-link" href="{{ path('louvre_booking_contact') }}">Contact</a>
             </nav>
         </div>
     </header>
 
     <section class="container col-8">
         {% block body %}
+
         {% endblock %}
     </section>
 
 
     <footer class="mastfoot mt-5">
-        <p>Projet 4 sous Symfony, by @delfy.</p>
+        <p>Projet 4 sous Symfony 3.4, by @delfy.</p>
+        <p><a href="{{ path('louvre_booking_legals') }}">Mentions légales</a></p>
     </footer>
 
 {% block javascripts %}
@@ -59,17 +62,9 @@
 <!-- Placed at the end of the document so the pages load faster -->
     <script src = "{{ asset('Public/js/jquery-3.3.1.js') }}"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-   {# <script src="https://code.jquery.com/jquery-3.3.1.min.js"   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="   crossorigin="anonymous"></script>#}
     <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
-
-<!-- version cdn datepicker -->
-    {# <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>#}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.js"></script>
 
-    <script src="{{ asset('Public/myDatepicker.js') }}"></script>
-    <script src="{{ asset('Public/js/addTickets.js') }}"></script>
-    <script src="{{ asset('Public/js/rate.js') }}"></script>
-    <script src="{{ asset('Public/js/ticketChoice.js') }}"></script>
 {% endblock %}
 
 </body>

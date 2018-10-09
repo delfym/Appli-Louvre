@@ -1,0 +1,23 @@
+#findUs {
+    background-color: #455a64;
+    border-radius: 15px;
+}
+
+#contactMap{
+    border-radius: 11px;
+}
+
+
+@media all and (max-width: 500px){
+    #contactMap{
+        width : 200px;
+        height : 100px;
+    }
+}
+
+@media all and (max-width: 1024px){
+    #contactMap{
+        width : 400px;
+        height : 250px;
+    }
+}

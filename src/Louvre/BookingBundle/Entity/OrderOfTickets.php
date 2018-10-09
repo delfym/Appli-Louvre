@@ -11,7 +11,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  *
  * @ORM\Table(name="order_of_tickets")
  * @ORM\Entity(repositoryClass="Louvre\BookingBundle\Repository\OrderOfTicketsRepository")
- *
+ * @ORM\HasLifecycleCallbacks()
  */
 class OrderOfTickets
 {
@@ -71,9 +71,9 @@ class OrderOfTickets
     private $bookingCode;
 
     /**
-     *
-     * @ORM\Column(name="ticketDate", type="datetime")
-     *
+     * @var \DateTime
+     * @ORM\Column(name="ticketDate", type="date")
+     * @Assert\DateTime()
      */
     private $ticketDate;
 
@@ -85,11 +85,24 @@ class OrderOfTickets
      */
     private $ticketType;
 
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="payment", type="boolean")
+     */
+    private $payment;
+
     public function __construct()
     {
         $this->purchaseDate = new \DateTime();
-
         $this->tickets = new ArrayCollection();
+    }
+
+    /**
+     * @ORM\PrePersist
+     */
+    public function validPayment(){
+        $this->setPayment('true');
     }
 
     /**
@@ -252,7 +265,6 @@ class OrderOfTickets
     {
         $bookingDate = $bookingDate->format('d-M-y');
         $bookingQty = strval($bookingQty);
-        $bookingId = $this->getId();
         $bookingLetter = substr($this->getVisitor()->getName(), 0,2);
         $this->bookingCode = $bookingDate . '-' . $bookingQty . '-' . $bookingId . $bookingLetter;
         return $this;
@@ -278,7 +290,6 @@ class OrderOfTickets
     public function setTicketDate($ticketDate)
     {
         $this->ticketDate = $ticketDate;
-
         return $this;
     }
 
@@ -314,5 +325,29 @@ class OrderOfTickets
     public function getTicketType()
     {
         return $this->ticketType;
+    }
+
+    /**
+     * Set payment.
+     *
+     * @param bool $payment
+     *
+     * @return OrderOfTickets
+     */
+    public function setPayment($payment)
+    {
+        $this->payment = $payment;
+
+        return $this;
+    }
+
+    /**
+     * Get payment.
+     *
+     * @return bool
+     */
+    public function getPayment()
+    {
+        return $this->payment;
     }
 }

@@ -41,6 +41,7 @@ class Visitor
      *
      * @ORM\Column(name="birthDate", type="date")
      * @Assert\Date()
+     * @Assert\NotBlank()
      */
     private $birthDate;
 
@@ -124,7 +125,7 @@ class Visitor
     /**
      * Get birthDate.
      *
-     * @return \DateTime
+     *
      */
     public function getBirthDate()
     {

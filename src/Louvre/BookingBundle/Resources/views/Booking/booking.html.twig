@@ -1,11 +1,6 @@
 
 
 {% extends "LouvreBookingBundle::layout.html.twig" %}
-{%  block javascripts %}
-    {{ parent() }}
-{% endblock %}
-
-
 
 {% block body %}
 
@@ -25,4 +20,10 @@
     </section>
 
 {% endblock %}
-
+{%  block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('Public/js/myDatepicker.js') }}"></script>
+    <script src="{{ asset('Public/js/addTickets.js') }}"></script>
+    <script src="{{ asset('Public/js/ticketChoice.js') }}"></script>
+    <script src="{{ asset('Public/js/rate.js') }}"></script>
+{% endblock %}

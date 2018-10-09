@@ -10,4 +10,58 @@ namespace Louvre\BookingBundle\Repository;
  */
 class OrderOfTicketsRepository extends \Doctrine\ORM\EntityRepository
 {
+    /**
+     * @param $ticketDate
+     * @return bool
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     */
+    public function countTickets($ticketDate)
+    {
+        $ticketDate = new \DateTime($ticketDate);
+        $ticketDate = $ticketDate->format('Y-m-d');
+
+        $ticketsNumber = $this->createQueryBuilder('o')
+                ->select('COUNT(o.id)')
+                ->where('o.ticketDate = :myDate')
+                ->setParameter('myDate', $ticketDate)
+                ->getQuery()->getSingleScalarResult();
+
+        if($ticketsNumber <= 1000) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * @param $id
+     * @return \Doctrine\ORM\QueryBuilder|mixed
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     */
+    public function getAmount($id){
+        $amount = $this->createQueryBuilder('o')
+                        ->select('o.amount')
+                        ->where('o.id = :id')
+                        ->setParameter('id', $id);
+        $amount = $amount
+            ->getQuery()
+            ->getSingleScalarResult();
+        return $amount;
+    }
+
+    /**
+     * @param $id
+     * @throws \Doctrine\ORM\ORMException
+     */
+    public function updateWithPayment($id){
+        $orderToUp = $this->createQueryBuilder('o');
+        $orderToUp->update()
+                  ->set('o.payment', true)
+                  ->where('o.id = :id')
+                  ->setParameter('id', $id)
+        ;
+
+//        $orderToUp->setPayment(true);
+        $orderToUp->execute();
+    }
+
 }

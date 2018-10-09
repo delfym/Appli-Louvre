@@ -1,34 +1,141 @@
-var birthDay;
-var birthDate;
+var formAdmin = {
+    calculateTotal: function () {
+        var total = 0;
+        $('input.price').each(
+            function (index, elem) {
+                var price = $(elem).val();
+                if ($.isNumeric(price)) {
+                    total += parseInt(price);
+                }
+            }
+        );
+        $('.total').val(total);
+        return total;
+    },
+    formatNumber: function (num) {
+        if (num.length == 1) {
+            return "0" + num;
+        }
+        return num;
+    },
 
-  $('.myBirth select').change(function (e) {
-    var test = $(this).val();
-    var test2 = $('.myBirth select:nth-child(1)').val();
-    var test3 = $('.myBirth select:nth-child(2)').val();
-    var test4 = $('.myBirth select:nth-child(3)').val();
-    if(test2 <= 9)
-    {
-      test2 = '0'+test2;
-    }
-    if(test3 <= 9)
-    {
-        test3 = '0' + test3;
-    }
-    birthDate = test2 + '-' + test3 +'-' + test4;
-
-      console.log('je suis dans un select ' + test);
-      console.log('je suis dans un select ' + test2 + ' ' +test3 + ' ' + test4);
-      console.log(birthDate);
-
-
-// ************* req AJAX ********************************
-
-        var url = 'http://localhost:8888/Appli-Louvre/web/app_dev.php/louvre_booking/update';
-        $.post(url, {birthDay : birthDate},
-            function (data) {
-                $('input.price')
-                    .val(data);
+    disableForm: function (bool) {
+        $('ul input').each(
+            function (index, elem) {
+                $(elem).prop('disabled', bool);
+                $('select').prop('disabled', bool);
             })
-            .fail('zut');
+    }
+};
 
-  });
+$('.tickets').on('change', '.myBirth', function (e) {
+
+    var parent = $(e.target).closest(".form-inline");
+    var idParent = "#" + $(parent).attr("id");
+    var inputDayValue = $(idParent + "_day").val();
+    var inputMonthValue = $(idParent + "_month").val();
+    var inputYearValue = $(idParent + "_year").val();
+    var myInput = $(e.target).closest(".myTicket").find("input.price").eq(0);
+
+    var date = formAdmin.formatNumber(inputDayValue) + "-"
+        + formAdmin.formatNumber(inputMonthValue) + "-" + inputYearValue;
+
+    var path = $('.myForm').attr('data-path');
+    $.post(path, {birthDay: date},
+        function (data) {
+            $(myInput).val(data);
+            if ($('#louvre_bookingbundle_orderoftickets_ticketType').val() == 1) {
+                var price = $(myInput).val();
+                $(myInput).val(price / 2);
+            }
+            formAdmin.calculateTotal();
+        })
+        .fail('La date doit être ressaisie.');
+
+});
+
+$('.myForm').on('change', '#louvre_bookingbundle_orderoftickets_ticketDate', function (e) {
+    var ticketDate = $(this).val();
+    var path = $('.available').attr('data-path');
+    $.post(path, {visitDate: ticketDate},
+        function (data) {
+            if (data == false) {
+                formAdmin.disableForm(true);
+            } else {
+                formAdmin.disableForm(false);
+            }
+        })
+        .fail('Le nombre d\'entrées disponibles est insuffisant. ' +
+            'Veuillez sélectionner moins de billets ou une autre date');
+});
+
+$('.myForm').on('change', 'input[type=checkbox]', function (e) {
+    var price = $(e.target).closest(".myTicket").find("input.price");
+
+    if ((e.target.checked == true) && (price.val() == 16)) {
+        var newPrice = price.val() - 10;
+        $(price).val(newPrice);
+        formAdmin.calculateTotal();
+    } else if ((e.target.checked == false) && (price.val() == 6)) {
+        var priceInt = parseInt(price.val());
+        var newPrice = (priceInt + 10);
+        $(price).val(newPrice);
+        formAdmin.calculateTotal();
+    }
+
+});
+
+$('.myForm').on('change', '#louvre_bookingbundle_orderoftickets_ticketType', function (e) {
+    $('input.price').each(
+        function (index, elem) {
+            $(elem).val('');
+        }
+    );
+    $('.total').val('');
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
