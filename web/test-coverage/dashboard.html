@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Dashboard for /Applications/MAMP/htdocs/Appli-Louvre/src/Louvre/BookingBundle</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href=".css/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <link href=".css/nv.d3.min.css" rel="stylesheet" type="text/css">
+  <link href=".css/style.css" rel="stylesheet" type="text/css">
+  <!--[if lt IE 9]>
+  <script src=".js/html5shiv.min.js"></script>
+  <script src=".js/respond.min.js"></script>
+  <![endif]-->
+ </head>
+ <body>
+  <header>
+   <div class="container">
+    <div class="row">
+     <div class="col-md-12">
+      <ol class="breadcrumb">
+        <li><a href="index.html">/Applications/MAMP/htdocs/Appli-Louvre/src/Louvre/BookingBundle</a></li>
+        <li class="active">(Dashboard)</li>
+
+      </ol>
+     </div>
+    </div>
+   </div>
+  </header>
+  <div class="container">
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Classes</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="classCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="classComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Controller/BookingController.php.html#20">Louvre\BookingBundle\Controller\BookingController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DependencyInjection/Configuration.php.html#13">Louvre\BookingBundle\DependencyInjection\Configuration</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DependencyInjection/LouvreBookingExtension.php.html#15">Louvre\BookingBundle\DependencyInjection\LouvreBookingExtension</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DoctrineListener/OrderOfTicketsCreationListener.php.html#16">Louvre\BookingBundle\DoctrineListener\OrderOfTicketsCreationListener</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/OrderOfTickets.php.html#16">Louvre\BookingBundle\Entity\OrderOfTickets</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Ticket.php.html#15">Louvre\BookingBundle\Entity\Ticket</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Visitor.php.html#14">Louvre\BookingBundle\Entity\Visitor</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/OrderOfTicketsType.php.html#15">Louvre\BookingBundle\Form\OrderOfTicketsType</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/TicketType.php.html#14">Louvre\BookingBundle\Form\TicketType</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/VisitorType.php.html#14">Louvre\BookingBundle\Form\VisitorType</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Mailer/Mailer.php.html#16">Louvre\BookingBundle\Mailer\Mailer</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repository/OrderOfTicketsRepository.php.html#11">Louvre\BookingBundle\Repository\OrderOfTicketsRepository</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repository/TicketRepository.php.html#11">Louvre\BookingBundle\Repository\TicketRepository</a></td><td class="text-right">0%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Controller/BookingController.php.html#20">Louvre\BookingBundle\Controller\BookingController</a></td><td class="text-right">182</td></tr>
+       <tr><td><a href="Entity/Ticket.php.html#15">Louvre\BookingBundle\Entity\Ticket</a></td><td class="text-right">110</td></tr>
+       <tr><td><a href="Repository/OrderOfTicketsRepository.php.html#11">Louvre\BookingBundle\Repository\OrderOfTicketsRepository</a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="DoctrineListener/OrderOfTicketsCreationListener.php.html#16">Louvre\BookingBundle\DoctrineListener\OrderOfTicketsCreationListener</a></td><td class="text-right">12</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Methods</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="methodCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="methodComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Controller/BookingController.php.html#25"><abbr title="Louvre\BookingBundle\Controller\BookingController::indexAction">indexAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Visitor.php.html#180"><abbr title="Louvre\BookingBundle\Entity\Visitor::setEmail">setEmail</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Ticket.php.html#111"><abbr title="Louvre\BookingBundle\Entity\Ticket::getVisitor">getVisitor</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Ticket.php.html#123"><abbr title="Louvre\BookingBundle\Entity\Ticket::setReduction">setReduction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Ticket.php.html#135"><abbr title="Louvre\BookingBundle\Entity\Ticket::getReduction">getReduction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Ticket.php.html#147"><abbr title="Louvre\BookingBundle\Entity\Ticket::setOrderOfTickets">setOrderOfTickets</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Ticket.php.html#158"><abbr title="Louvre\BookingBundle\Entity\Ticket::getOrderOfTickets">getOrderOfTickets</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Visitor.php.html#72"><abbr title="Louvre\BookingBundle\Entity\Visitor::getId">getId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Visitor.php.html#82"><abbr title="Louvre\BookingBundle\Entity\Visitor::getName">getName</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Visitor.php.html#94"><abbr title="Louvre\BookingBundle\Entity\Visitor::setName">setName</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Visitor.php.html#106"><abbr title="Louvre\BookingBundle\Entity\Visitor::getFirstName">getFirstName</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Visitor.php.html#118"><abbr title="Louvre\BookingBundle\Entity\Visitor::setFirstName">setFirstName</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Visitor.php.html#130"><abbr title="Louvre\BookingBundle\Entity\Visitor::getBirthDate">getBirthDate</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Visitor.php.html#142"><abbr title="Louvre\BookingBundle\Entity\Visitor::setBirthDate">setBirthDate</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Visitor.php.html#156"><abbr title="Louvre\BookingBundle\Entity\Visitor::setCountry">setCountry</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Visitor.php.html#168"><abbr title="Louvre\BookingBundle\Entity\Visitor::getCountry">getCountry</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Visitor.php.html#192"><abbr title="Louvre\BookingBundle\Entity\Visitor::getEmail">getEmail</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Ticket.php.html#87"><abbr title="Louvre\BookingBundle\Entity\Ticket::getPrice">getPrice</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/OrderOfTicketsType.php.html#20"><abbr title="Louvre\BookingBundle\Form\OrderOfTicketsType::buildForm">buildForm</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/OrderOfTicketsType.php.html#63"><abbr title="Louvre\BookingBundle\Form\OrderOfTicketsType::configureOptions">configureOptions</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/OrderOfTicketsType.php.html#73"><abbr title="Louvre\BookingBundle\Form\OrderOfTicketsType::getBlockPrefix">getBlockPrefix</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/TicketType.php.html#19"><abbr title="Louvre\BookingBundle\Form\TicketType::buildForm">buildForm</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/TicketType.php.html#36"><abbr title="Louvre\BookingBundle\Form\TicketType::configureOptions">configureOptions</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/TicketType.php.html#46"><abbr title="Louvre\BookingBundle\Form\TicketType::getBlockPrefix">getBlockPrefix</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/VisitorType.php.html#19"><abbr title="Louvre\BookingBundle\Form\VisitorType::buildForm">buildForm</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/VisitorType.php.html#35"><abbr title="Louvre\BookingBundle\Form\VisitorType::configureOptions">configureOptions</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/VisitorType.php.html#45"><abbr title="Louvre\BookingBundle\Form\VisitorType::getBlockPrefix">getBlockPrefix</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Mailer/Mailer.php.html#30"><abbr title="Louvre\BookingBundle\Mailer\Mailer::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Mailer/Mailer.php.html#40"><abbr title="Louvre\BookingBundle\Mailer\Mailer::sendMessage">sendMessage</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repository/OrderOfTicketsRepository.php.html#18"><abbr title="Louvre\BookingBundle\Repository\OrderOfTicketsRepository::countTickets">countTickets</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repository/OrderOfTicketsRepository.php.html#40"><abbr title="Louvre\BookingBundle\Repository\OrderOfTicketsRepository::getAmount">getAmount</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repository/OrderOfTicketsRepository.php.html#55"><abbr title="Louvre\BookingBundle\Repository\OrderOfTicketsRepository::updateWithPayment">updateWithPayment</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Ticket.php.html#99"><abbr title="Louvre\BookingBundle\Entity\Ticket::setVisitor">setVisitor</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Ticket.php.html#72"><abbr title="Louvre\BookingBundle\Entity\Ticket::setPrice">setPrice</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/BookingController.php.html#35"><abbr title="Louvre\BookingBundle\Controller\BookingController::contactAction">contactAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/OrderOfTickets.php.html#148"><abbr title="Louvre\BookingBundle\Entity\OrderOfTickets::getAmount">getAmount</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/BookingController.php.html#44"><abbr title="Louvre\BookingBundle\Controller\BookingController::updateAction">updateAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/BookingController.php.html#54"><abbr title="Louvre\BookingBundle\Controller\BookingController::availableTicketsAction">availableTicketsAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/BookingController.php.html#69"><abbr title="Louvre\BookingBundle\Controller\BookingController::bookingAction">bookingAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/BookingController.php.html#128"><abbr title="Louvre\BookingBundle\Controller\BookingController::prepareAction">prepareAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/BookingController.php.html#147"><abbr title="Louvre\BookingBundle\Controller\BookingController::checkoutAction">checkoutAction</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DependencyInjection/Configuration.php.html#18"><abbr title="Louvre\BookingBundle\DependencyInjection\Configuration::getConfigTreeBuilder">getConfigTreeBuilder</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DependencyInjection/LouvreBookingExtension.php.html#20"><abbr title="Louvre\BookingBundle\DependencyInjection\LouvreBookingExtension::load">load</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DoctrineListener/OrderOfTicketsCreationListener.php.html#20"><abbr title="Louvre\BookingBundle\DoctrineListener\OrderOfTicketsCreationListener::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DoctrineListener/OrderOfTicketsCreationListener.php.html#25"><abbr title="Louvre\BookingBundle\DoctrineListener\OrderOfTicketsCreationListener::preUpdate">preUpdate</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/OrderOfTickets.php.html#95"><abbr title="Louvre\BookingBundle\Entity\OrderOfTickets::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/OrderOfTickets.php.html#104"><abbr title="Louvre\BookingBundle\Entity\OrderOfTickets::validPayment">validPayment</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/OrderOfTickets.php.html#113"><abbr title="Louvre\BookingBundle\Entity\OrderOfTickets::getId">getId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/OrderOfTickets.php.html#125"><abbr title="Louvre\BookingBundle\Entity\OrderOfTickets::setPurchaseDate">setPurchaseDate</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/OrderOfTickets.php.html#137"><abbr title="Louvre\BookingBundle\Entity\OrderOfTickets::getPurchaseDate">getPurchaseDate</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/OrderOfTickets.php.html#160"><abbr title="Louvre\BookingBundle\Entity\OrderOfTickets::setVisitor">setVisitor</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Ticket.php.html#60"><abbr title="Louvre\BookingBundle\Entity\Ticket::getId">getId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/OrderOfTickets.php.html#278"><abbr title="Louvre\BookingBundle\Entity\OrderOfTickets::getBookingCode">getBookingCode</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/OrderOfTickets.php.html#349"><abbr title="Louvre\BookingBundle\Entity\OrderOfTickets::getPayment">getPayment</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/OrderOfTickets.php.html#337"><abbr title="Louvre\BookingBundle\Entity\OrderOfTickets::setPayment">setPayment</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/OrderOfTickets.php.html#325"><abbr title="Louvre\BookingBundle\Entity\OrderOfTickets::getTicketType">getTicketType</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/OrderOfTickets.php.html#313"><abbr title="Louvre\BookingBundle\Entity\OrderOfTickets::setTicketType">setTicketType</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/OrderOfTickets.php.html#301"><abbr title="Louvre\BookingBundle\Entity\OrderOfTickets::getTicketDate">getTicketDate</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/OrderOfTickets.php.html#290"><abbr title="Louvre\BookingBundle\Entity\OrderOfTickets::setTicketDate">setTicketDate</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/OrderOfTickets.php.html#264"><abbr title="Louvre\BookingBundle\Entity\OrderOfTickets::setBookingCode">setBookingCode</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/OrderOfTickets.php.html#172"><abbr title="Louvre\BookingBundle\Entity\OrderOfTickets::getVisitor">getVisitor</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/OrderOfTickets.php.html#245"><abbr title="Louvre\BookingBundle\Entity\OrderOfTickets::setAmount">setAmount</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/OrderOfTickets.php.html#232"><abbr title="Louvre\BookingBundle\Entity\OrderOfTickets::getTickets">getTickets</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/OrderOfTickets.php.html#222"><abbr title="Louvre\BookingBundle\Entity\OrderOfTickets::removeTicket">removeTicket</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/OrderOfTickets.php.html#208"><abbr title="Louvre\BookingBundle\Entity\OrderOfTickets::addTicket">addTicket</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/OrderOfTickets.php.html#196"><abbr title="Louvre\BookingBundle\Entity\OrderOfTickets::getTicketsQuantity">getTicketsQuantity</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/OrderOfTickets.php.html#184"><abbr title="Louvre\BookingBundle\Entity\OrderOfTickets::setTicketsQuantity">setTicketsQuantity</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repository/TicketRepository.php.html#13"><abbr title="Louvre\BookingBundle\Repository\TicketRepository::getTickets">getTickets</abbr></a></td><td class="text-right">0%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Controller/BookingController.php.html#69"><abbr title="Louvre\BookingBundle\Controller\BookingController::bookingAction">bookingAction</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Controller/BookingController.php.html#44"><abbr title="Louvre\BookingBundle\Controller\BookingController::updateAction">updateAction</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Controller/BookingController.php.html#54"><abbr title="Louvre\BookingBundle\Controller\BookingController::availableTicketsAction">availableTicketsAction</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Controller/BookingController.php.html#147"><abbr title="Louvre\BookingBundle\Controller\BookingController::checkoutAction">checkoutAction</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="DoctrineListener/OrderOfTicketsCreationListener.php.html#25"><abbr title="Louvre\BookingBundle\DoctrineListener\OrderOfTicketsCreationListener::preUpdate">preUpdate</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Entity/Ticket.php.html#72"><abbr title="Louvre\BookingBundle\Entity\Ticket::setPrice">setPrice</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Repository/OrderOfTicketsRepository.php.html#18"><abbr title="Louvre\BookingBundle\Repository\OrderOfTicketsRepository::countTickets">countTickets</abbr></a></td><td class="text-right">6</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <footer>
+    <hr/>
+    <p>
+     <small>Generated by <a href="https://github.com/sebastianbergmann/php-code-coverage" target="_top">php-code-coverage 6.0.3</a> using <a href="https://secure.php.net/" target="_top">PHP 7.2.4</a> with <a href="https://xdebug.org/">Xdebug 2.6.0</a> and <a href="https://phpunit.de/">PHPUnit 7.1.2</a> at Thu Apr 26 16:50:36 UTC 2018.</small>
+    </p>
+   </footer>
+  </div>
+  <script src=".js/jquery.min.js" type="text/javascript"></script>
+  <script src=".js/bootstrap.min.js" type="text/javascript"></script>
+  <script src=".js/holder.min.js" type="text/javascript"></script>
+  <script src=".js/d3.min.js" type="text/javascript"></script>
+  <script src=".js/nv.d3.min.js" type="text/javascript"></script>
+  <script type="text/javascript">
+$(document).ready(function() {
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#classCoverageDistribution svg')
+      .datum(getCoverageDistributionData([13,0,0,0,0,0,0,0,0,0,0,3], "Class Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#methodCoverageDistribution svg')
+      .datum(getCoverageDistributionData([68,0,0,0,0,0,0,0,0,0,0,2], "Method Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getCoverageDistributionData(data, label) {
+    var labels = [
+      '0%',
+      '0-10%',
+      '10-20%',
+      '20-30%',
+      '30-40%',
+      '40-50%',
+      '50-60%',
+      '60-70%',
+      '70-80%',
+      '80-90%',
+      '90-100%',
+      '100%'
+    ];
+    var values = [];
+    $.each(labels, function(key) {
+      values.push({x: labels[key], y: data[key]});
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Cyclomatic Complexity');
+
+    d3.select('#classComplexity svg')
+      .datum(getComplexityData([[0,13,"<a href=\"Controller\/BookingController.php.html#20\">Louvre\\BookingBundle\\Controller\\BookingController<\/a>"],[0,1,"<a href=\"DependencyInjection\/Configuration.php.html#13\">Louvre\\BookingBundle\\DependencyInjection\\Configuration<\/a>"],[0,1,"<a href=\"DependencyInjection\/LouvreBookingExtension.php.html#15\">Louvre\\BookingBundle\\DependencyInjection\\LouvreBookingExtension<\/a>"],[0,3,"<a href=\"DoctrineListener\/OrderOfTicketsCreationListener.php.html#16\">Louvre\\BookingBundle\\DoctrineListener\\OrderOfTicketsCreationListener<\/a>"],[0,22,"<a href=\"Entity\/OrderOfTickets.php.html#16\">Louvre\\BookingBundle\\Entity\\OrderOfTickets<\/a>"],[0,10,"<a href=\"Entity\/Ticket.php.html#15\">Louvre\\BookingBundle\\Entity\\Ticket<\/a>"],[0,11,"<a href=\"Entity\/Visitor.php.html#14\">Louvre\\BookingBundle\\Entity\\Visitor<\/a>"],[0,3,"<a href=\"Form\/OrderOfTicketsType.php.html#15\">Louvre\\BookingBundle\\Form\\OrderOfTicketsType<\/a>"],[0,3,"<a href=\"Form\/TicketType.php.html#14\">Louvre\\BookingBundle\\Form\\TicketType<\/a>"],[0,3,"<a href=\"Form\/VisitorType.php.html#14\">Louvre\\BookingBundle\\Form\\VisitorType<\/a>"],[100,0,"<a href=\"LouvreBookingBundle.php.html#7\">Louvre\\BookingBundle\\LouvreBookingBundle<\/a>"],[0,2,"<a href=\"Mailer\/Mailer.php.html#16\">Louvre\\BookingBundle\\Mailer\\Mailer<\/a>"],[100,6,"<a href=\"RateChoice\/LouvreRateChoice.php.html#14\">Louvre\\BookingBundle\\RateChoice\\LouvreRateChoice<\/a>"],[0,4,"<a href=\"Repository\/OrderOfTicketsRepository.php.html#11\">Louvre\\BookingBundle\\Repository\\OrderOfTicketsRepository<\/a>"],[0,1,"<a href=\"Repository\/TicketRepository.php.html#11\">Louvre\\BookingBundle\\Repository\\TicketRepository<\/a>"],[100,0,"<a href=\"Repository\/VisitorRepository.php.html#11\">Louvre\\BookingBundle\\Repository\\VisitorRepository<\/a>"]], 'Class Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Method Complexity');
+
+    d3.select('#methodComplexity svg')
+      .datum(getComplexityData([[0,1,"<a href=\"Controller\/BookingController.php.html#25\">Louvre\\BookingBundle\\Controller\\BookingController::indexAction<\/a>"],[0,1,"<a href=\"Controller\/BookingController.php.html#35\">Louvre\\BookingBundle\\Controller\\BookingController::contactAction<\/a>"],[0,2,"<a href=\"Controller\/BookingController.php.html#44\">Louvre\\BookingBundle\\Controller\\BookingController::updateAction<\/a>"],[0,2,"<a href=\"Controller\/BookingController.php.html#54\">Louvre\\BookingBundle\\Controller\\BookingController::availableTicketsAction<\/a>"],[0,4,"<a href=\"Controller\/BookingController.php.html#69\">Louvre\\BookingBundle\\Controller\\BookingController::bookingAction<\/a>"],[0,1,"<a href=\"Controller\/BookingController.php.html#128\">Louvre\\BookingBundle\\Controller\\BookingController::prepareAction<\/a>"],[0,2,"<a href=\"Controller\/BookingController.php.html#147\">Louvre\\BookingBundle\\Controller\\BookingController::checkoutAction<\/a>"],[0,1,"<a href=\"DependencyInjection\/Configuration.php.html#18\">Louvre\\BookingBundle\\DependencyInjection\\Configuration::getConfigTreeBuilder<\/a>"],[0,1,"<a href=\"DependencyInjection\/LouvreBookingExtension.php.html#20\">Louvre\\BookingBundle\\DependencyInjection\\LouvreBookingExtension::load<\/a>"],[0,1,"<a href=\"DoctrineListener\/OrderOfTicketsCreationListener.php.html#20\">Louvre\\BookingBundle\\DoctrineListener\\OrderOfTicketsCreationListener::__construct<\/a>"],[0,2,"<a href=\"DoctrineListener\/OrderOfTicketsCreationListener.php.html#25\">Louvre\\BookingBundle\\DoctrineListener\\OrderOfTicketsCreationListener::preUpdate<\/a>"],[0,1,"<a href=\"Entity\/OrderOfTickets.php.html#95\">Louvre\\BookingBundle\\Entity\\OrderOfTickets::__construct<\/a>"],[0,1,"<a href=\"Entity\/OrderOfTickets.php.html#104\">Louvre\\BookingBundle\\Entity\\OrderOfTickets::validPayment<\/a>"],[0,1,"<a href=\"Entity\/OrderOfTickets.php.html#113\">Louvre\\BookingBundle\\Entity\\OrderOfTickets::getId<\/a>"],[0,1,"<a href=\"Entity\/OrderOfTickets.php.html#125\">Louvre\\BookingBundle\\Entity\\OrderOfTickets::setPurchaseDate<\/a>"],[0,1,"<a href=\"Entity\/OrderOfTickets.php.html#137\">Louvre\\BookingBundle\\Entity\\OrderOfTickets::getPurchaseDate<\/a>"],[0,1,"<a href=\"Entity\/OrderOfTickets.php.html#148\">Louvre\\BookingBundle\\Entity\\OrderOfTickets::getAmount<\/a>"],[0,1,"<a href=\"Entity\/OrderOfTickets.php.html#160\">Louvre\\BookingBundle\\Entity\\OrderOfTickets::setVisitor<\/a>"],[0,1,"<a href=\"Entity\/OrderOfTickets.php.html#172\">Louvre\\BookingBundle\\Entity\\OrderOfTickets::getVisitor<\/a>"],[0,1,"<a href=\"Entity\/OrderOfTickets.php.html#184\">Louvre\\BookingBundle\\Entity\\OrderOfTickets::setTicketsQuantity<\/a>"],[0,1,"<a href=\"Entity\/OrderOfTickets.php.html#196\">Louvre\\BookingBundle\\Entity\\OrderOfTickets::getTicketsQuantity<\/a>"],[0,1,"<a href=\"Entity\/OrderOfTickets.php.html#208\">Louvre\\BookingBundle\\Entity\\OrderOfTickets::addTicket<\/a>"],[0,1,"<a href=\"Entity\/OrderOfTickets.php.html#222\">Louvre\\BookingBundle\\Entity\\OrderOfTickets::removeTicket<\/a>"],[0,1,"<a href=\"Entity\/OrderOfTickets.php.html#232\">Louvre\\BookingBundle\\Entity\\OrderOfTickets::getTickets<\/a>"],[0,1,"<a href=\"Entity\/OrderOfTickets.php.html#245\">Louvre\\BookingBundle\\Entity\\OrderOfTickets::setAmount<\/a>"],[0,1,"<a href=\"Entity\/OrderOfTickets.php.html#264\">Louvre\\BookingBundle\\Entity\\OrderOfTickets::setBookingCode<\/a>"],[0,1,"<a href=\"Entity\/OrderOfTickets.php.html#278\">Louvre\\BookingBundle\\Entity\\OrderOfTickets::getBookingCode<\/a>"],[0,1,"<a href=\"Entity\/OrderOfTickets.php.html#290\">Louvre\\BookingBundle\\Entity\\OrderOfTickets::setTicketDate<\/a>"],[0,1,"<a href=\"Entity\/OrderOfTickets.php.html#301\">Louvre\\BookingBundle\\Entity\\OrderOfTickets::getTicketDate<\/a>"],[0,1,"<a href=\"Entity\/OrderOfTickets.php.html#313\">Louvre\\BookingBundle\\Entity\\OrderOfTickets::setTicketType<\/a>"],[0,1,"<a href=\"Entity\/OrderOfTickets.php.html#325\">Louvre\\BookingBundle\\Entity\\OrderOfTickets::getTicketType<\/a>"],[0,1,"<a href=\"Entity\/OrderOfTickets.php.html#337\">Louvre\\BookingBundle\\Entity\\OrderOfTickets::setPayment<\/a>"],[0,1,"<a href=\"Entity\/OrderOfTickets.php.html#349\">Louvre\\BookingBundle\\Entity\\OrderOfTickets::getPayment<\/a>"],[0,1,"<a href=\"Entity\/Ticket.php.html#60\">Louvre\\BookingBundle\\Entity\\Ticket::getId<\/a>"],[0,2,"<a href=\"Entity\/Ticket.php.html#72\">Louvre\\BookingBundle\\Entity\\Ticket::setPrice<\/a>"],[0,1,"<a href=\"Entity\/Ticket.php.html#87\">Louvre\\BookingBundle\\Entity\\Ticket::getPrice<\/a>"],[0,1,"<a href=\"Entity\/Ticket.php.html#99\">Louvre\\BookingBundle\\Entity\\Ticket::setVisitor<\/a>"],[0,1,"<a href=\"Entity\/Ticket.php.html#111\">Louvre\\BookingBundle\\Entity\\Ticket::getVisitor<\/a>"],[0,1,"<a href=\"Entity\/Ticket.php.html#123\">Louvre\\BookingBundle\\Entity\\Ticket::setReduction<\/a>"],[0,1,"<a href=\"Entity\/Ticket.php.html#135\">Louvre\\BookingBundle\\Entity\\Ticket::getReduction<\/a>"],[0,1,"<a href=\"Entity\/Ticket.php.html#147\">Louvre\\BookingBundle\\Entity\\Ticket::setOrderOfTickets<\/a>"],[0,1,"<a href=\"Entity\/Ticket.php.html#158\">Louvre\\BookingBundle\\Entity\\Ticket::getOrderOfTickets<\/a>"],[0,1,"<a href=\"Entity\/Visitor.php.html#72\">Louvre\\BookingBundle\\Entity\\Visitor::getId<\/a>"],[0,1,"<a href=\"Entity\/Visitor.php.html#82\">Louvre\\BookingBundle\\Entity\\Visitor::getName<\/a>"],[0,1,"<a href=\"Entity\/Visitor.php.html#94\">Louvre\\BookingBundle\\Entity\\Visitor::setName<\/a>"],[0,1,"<a href=\"Entity\/Visitor.php.html#106\">Louvre\\BookingBundle\\Entity\\Visitor::getFirstName<\/a>"],[0,1,"<a href=\"Entity\/Visitor.php.html#118\">Louvre\\BookingBundle\\Entity\\Visitor::setFirstName<\/a>"],[0,1,"<a href=\"Entity\/Visitor.php.html#130\">Louvre\\BookingBundle\\Entity\\Visitor::getBirthDate<\/a>"],[0,1,"<a href=\"Entity\/Visitor.php.html#142\">Louvre\\BookingBundle\\Entity\\Visitor::setBirthDate<\/a>"],[0,1,"<a href=\"Entity\/Visitor.php.html#156\">Louvre\\BookingBundle\\Entity\\Visitor::setCountry<\/a>"],[0,1,"<a href=\"Entity\/Visitor.php.html#168\">Louvre\\BookingBundle\\Entity\\Visitor::getCountry<\/a>"],[0,1,"<a href=\"Entity\/Visitor.php.html#180\">Louvre\\BookingBundle\\Entity\\Visitor::setEmail<\/a>"],[0,1,"<a href=\"Entity\/Visitor.php.html#192\">Louvre\\BookingBundle\\Entity\\Visitor::getEmail<\/a>"],[0,1,"<a href=\"Form\/OrderOfTicketsType.php.html#20\">Louvre\\BookingBundle\\Form\\OrderOfTicketsType::buildForm<\/a>"],[0,1,"<a href=\"Form\/OrderOfTicketsType.php.html#63\">Louvre\\BookingBundle\\Form\\OrderOfTicketsType::configureOptions<\/a>"],[0,1,"<a href=\"Form\/OrderOfTicketsType.php.html#73\">Louvre\\BookingBundle\\Form\\OrderOfTicketsType::getBlockPrefix<\/a>"],[0,1,"<a href=\"Form\/TicketType.php.html#19\">Louvre\\BookingBundle\\Form\\TicketType::buildForm<\/a>"],[0,1,"<a href=\"Form\/TicketType.php.html#36\">Louvre\\BookingBundle\\Form\\TicketType::configureOptions<\/a>"],[0,1,"<a href=\"Form\/TicketType.php.html#46\">Louvre\\BookingBundle\\Form\\TicketType::getBlockPrefix<\/a>"],[0,1,"<a href=\"Form\/VisitorType.php.html#19\">Louvre\\BookingBundle\\Form\\VisitorType::buildForm<\/a>"],[0,1,"<a href=\"Form\/VisitorType.php.html#35\">Louvre\\BookingBundle\\Form\\VisitorType::configureOptions<\/a>"],[0,1,"<a href=\"Form\/VisitorType.php.html#45\">Louvre\\BookingBundle\\Form\\VisitorType::getBlockPrefix<\/a>"],[0,1,"<a href=\"Mailer\/Mailer.php.html#30\">Louvre\\BookingBundle\\Mailer\\Mailer::__construct<\/a>"],[0,1,"<a href=\"Mailer\/Mailer.php.html#40\">Louvre\\BookingBundle\\Mailer\\Mailer::sendMessage<\/a>"],[100,5,"<a href=\"RateChoice\/LouvreRateChoice.php.html#23\">Louvre\\BookingBundle\\RateChoice\\LouvreRateChoice::rate<\/a>"],[100,1,"<a href=\"RateChoice\/LouvreRateChoice.php.html#41\">Louvre\\BookingBundle\\RateChoice\\LouvreRateChoice::testDates<\/a>"],[0,2,"<a href=\"Repository\/OrderOfTicketsRepository.php.html#18\">Louvre\\BookingBundle\\Repository\\OrderOfTicketsRepository::countTickets<\/a>"],[0,1,"<a href=\"Repository\/OrderOfTicketsRepository.php.html#40\">Louvre\\BookingBundle\\Repository\\OrderOfTicketsRepository::getAmount<\/a>"],[0,1,"<a href=\"Repository\/OrderOfTicketsRepository.php.html#55\">Louvre\\BookingBundle\\Repository\\OrderOfTicketsRepository::updateWithPayment<\/a>"],[0,1,"<a href=\"Repository\/TicketRepository.php.html#13\">Louvre\\BookingBundle\\Repository\\TicketRepository::getTickets<\/a>"]], 'Method Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getComplexityData(data, label) {
+    var values = [];
+    $.each(data, function(key) {
+      var value = Math.round(data[key][0]*100) / 100;
+      values.push({
+        x: value,
+        y: data[key][1],
+        class: data[key][2],
+        size: 0.05,
+        shape: 'diamond'
+      });
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+});
+  </script>
+ </body>
+</html>

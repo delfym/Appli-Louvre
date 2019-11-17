@@ -1,0 +1,23 @@
+{% extends "::layout.html.twig" %}
+
+
+{%  block body %}
+
+
+    <head>
+        <meta charset="{{ _charset }}" />
+        <title>An Error Occurred: {{ status_text }}</title>
+    </head>
+    <p class="jumbotron-fluid">
+        <h1>Humm, cette page n'existe pas.</h1>
+
+        <p>Erreur {{ status_code }}</p>
+
+        <p>
+            <a href="{{ path('louvre_booking_home') }}" class="text-light">
+            Cliquez ici pour revenir à la page d'accueil du musée.
+            </a>
+        </p>
+    </p>
+
+{% endblock %}

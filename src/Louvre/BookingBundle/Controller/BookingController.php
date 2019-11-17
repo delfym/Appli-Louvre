@@ -1,51 +1,64 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: delphinemillotpedrero
  * Date: 07/02/2018
  * Time: 18:02
- */
+ **/
 
 namespace Louvre\BookingBundle\Controller;
 
-use HttpRequestException;
+///use HttpRequestException;
 use Louvre\BookingBundle\Entity\OrderOfTickets;
 use Louvre\BookingBundle\Form\OrderOfTicketsType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\HttpKernel\Exception\HttpException;
+use Symfony\Component\HttpKernel\Exception\HttpRequestException;
 
 class BookingController extends Controller
 {
-
     private $tickets;
+
+    /**
+     * Page d'accueil
+     */
 
     public function indexAction()
     {
-        $content = $this->get('templating')->render('LouvreBookingBundle:Booking:index.html.twig',
-            array(
-                'titre_page' => 'Musée du Louvre'
-            ));
+        $content = $this->get('templating')
+            ->render(
+                'LouvreBookingBundle:Booking:index.html.twig',
+                array(
+                    'titre_page' => 'Musée du Louvre'
+                )
+            );
         return new Response($content);
     }
-
+    /**
+     * Page de contact
+     */
     public function contactAction()
     {
-        $content = $this->get('templating')->render('LouvreBookingBundle:Booking:contact.html.twig',
+        $content = $this->get('templating')->render(
+            'LouvreBookingBundle:Booking:contact.html.twig',
             array(
                 'titre_page' => 'Musée du Louvre'
-            ));
+            )
+        );
         return new Response($content);
     }
 
     public function legalsAction()
     {
-        $content = $this->get('templating')->render('LouvreBookingBundle:Booking:legals.html.twig',
+        $content = $this->get('templating')->render(
+            'LouvreBookingBundle:Booking:legals.html.twig',
             array(
                 'titre_page' => 'Musée du Louvre'
-            ));
+            )
+        );
         return new Response($content);
     }
 
@@ -85,9 +98,11 @@ class BookingController extends Controller
         $form = $this->get('form.factory')
             ->create(OrderOfTicketsType::class, $orderOfTickets);
 
-        if ($request->isMethod('POST')
+        if (
+            $request->isMethod('POST')
             && $form->handleRequest($request)
-                ->isValid()) {
+            ->isValid()
+        ) {
 
             $ticketDate = ($_POST["louvre_bookingbundle_orderoftickets"]['ticketDate']);
             $ticketDate = \DateTime::createFromFormat('d-m-Y', $ticketDate);
@@ -105,14 +120,15 @@ class BookingController extends Controller
                 $ticket->setPrice($rate);
                 $amount += $rate;
             }
-            if($orderOfTickets->getTicketType() == 1){
-                $amount= $amount/2;
+            if ($orderOfTickets->getTicketType() == 1) {
+                $amount = $amount / 2;
             }
             $orderOfTickets->setAmount($amount);
             $orderOfTickets->setBookingCode(
                 $orderOfTickets->getPurchaseDate(),
                 $orderOfTickets->getTicketsQuantity(),
-                $orderOfTickets->getId());
+                $orderOfTickets->getId()
+            );
 
             $em->persist($orderOfTickets);
             $em->flush();
@@ -129,9 +145,13 @@ class BookingController extends Controller
             $session->set('amount', $repo->getAmount($id));
             $session->set('orderId', $id);
 
-            return $this->render('LouvreBookingBundle:Booking:prepare.html.twig',
-                array('amount' => $amount,
-                    'email' => $mail));
+            return $this->render(
+                'LouvreBookingBundle:Booking:prepare.html.twig',
+                [
+                    'amount' => $amount,
+                    'email' => $mail
+                ]
+            );
         }
 
         return $this->render('LouvreBookingBundle:Booking:booking.html.twig', array(
@@ -167,8 +187,14 @@ class BookingController extends Controller
 
         try {
             $stripeClient = $this->get('flosch.stripe.client');
-            $stripeClient->createCharge($amount, 'eur', $token, null, 0,
-                'Votre paiement de billetterie');
+            $stripeClient->createCharge(
+                $amount,
+                'eur',
+                $token,
+                null,
+                0,
+                'Votre paiement de billetterie'
+            );
 
             $em = $this->getDoctrine()->getManager();
             $orderToUpdate = $em->getRepository('LouvreBookingBundle:OrderOfTickets')
@@ -177,7 +203,6 @@ class BookingController extends Controller
             $em->flush();
 
             return $this->redirectToRoute("louvre_booking_home");
-
         } catch (HttpRequestException $exception) {
 
             $this->addFlash("error", "Votre paiement n'a pas abouti. 
@@ -185,6 +210,5 @@ class BookingController extends Controller
 
             return $this->redirectToRoute("louvre_booking_prepare");
         }
-
     }
 }

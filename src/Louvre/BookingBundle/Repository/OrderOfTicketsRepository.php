@@ -50,7 +50,6 @@ class OrderOfTicketsRepository extends \Doctrine\ORM\EntityRepository
 
     /**
      * @param $id
-     * @throws \Doctrine\ORM\ORMException
      */
     public function updateWithPayment($id){
         $orderToUp = $this->createQueryBuilder('o');

@@ -1,0 +1,12 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_host: 127.0.0.1
+    database_port: 8889
+    database_name: louvre
+    database_user: root
+    database_password: root
+    mailer_host: smtp.gmail.com
+    mailer_transport: gmail
+    mailer_user: louvre.accueil@gmail.com
+    mailer_password: louvre-accueil@OC
+    secret: e441110e6c065d8d5a8d675ecc0e795d70f79675

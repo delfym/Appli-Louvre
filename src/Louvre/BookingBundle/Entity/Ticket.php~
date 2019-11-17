@@ -3,21 +3,32 @@
 namespace Louvre\BookingBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Ticket
  *
  * @ORM\Table(name="ticket")
  * @ORM\Entity(repositoryClass="Louvre\BookingBundle\Repository\TicketRepository")
+ * @ORM\HasLifecycleCallbacks()
  */
 class Ticket
 {
     /**
-     * @ORM\OneToOne(targetEntity="Louvre\BookingBundle\Entity\Visitor", cascade={"persist"})
+     * @ORM\OneToOne(targetEntity="Visitor",
+         cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
+     * @Assert\NotBlank()
      */
     private $visitor;
-    
+
+    /**
+     * @ORM\ManyToOne(targetEntity="OrderOfTickets",
+    inversedBy="tickets")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $orderOfTickets;
+
     /**
      * @var int
      *
@@ -28,25 +39,17 @@ class Ticket
     private $id;
 
     /**
-     * @var string
+     * @var float
      *
      * @ORM\Column(name="price", type="decimal", precision=4, scale=2)
+     * @Assert\NotBlank()
      */
     private $price;
 
     /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="ticketDate", type="datetime")
+     * @var boolean
      */
-    private $ticketDate;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="ticketType", type="string")
-     */
-    private $ticketType;
+    private $reduction;
 
 
     /**
@@ -62,72 +65,98 @@ class Ticket
     /**
      * Set price.
      *
-     * @param string $price
+     * @param float $price
      *
      * @return Ticket
      */
     public function setPrice($price)
     {
-        $this->price = $price;
-
-        return $this;
+        if(true === $this->reduction) {
+            $this->price = $price - 10;
+        } else {
+            $this->price = $price;
+        }
+            return $this;
     }
 
     /**
      * Get price.
      *
-     * @return string
+     * @return float
      */
     public function getPrice()
     {
         return $this->price;
     }
-
+    
     /**
-     * Set ticketDate.
+     * Set visitor.
      *
-     * @param \DateTime $ticketDate
+     * @param \Louvre\BookingBundle\Entity\Visitor $visitor
      *
      * @return Ticket
      */
-    public function setTicketDate($ticketDate)
+    public function setVisitor(Visitor $visitor)
     {
-        $this->ticketDate = $ticketDate;
+        $this->visitor = $visitor;
 
         return $this;
     }
 
     /**
-     * Get ticketDate.
+     * Get visitor.
      *
-     * @return \DateTime
+     * @return \Louvre\BookingBundle\Entity\Visitor
      */
-    public function getTicketDate()
+    public function getVisitor()
     {
-        return $this->ticketDate;
+        return $this->visitor;
     }
 
     /**
-     * Set ticketType.
+     * Set reduction.
      *
-     * @param string $ticketType
+     * @param bool $reduction
      *
      * @return Ticket
      */
-    public function setTicketType($ticketType)
+    public function setReduction($reduction)
     {
-        $this->ticketType = $ticketType;
+        $this->reduction = $reduction;
 
         return $this;
     }
 
     /**
-     * Get ticketType.
+     * Get reduction.
      *
-     * @return string
+     * @return bool
      */
-    public function getTicketType()
+    public function getReduction()
     {
-        return $this->ticketType;
+        return $this->reduction;
+    }
+
+    /**
+     * Set orderOfTickets.
+     *
+     * @param OrderOfTickets $orderOfTickets
+     *
+     * @return Ticket
+     */
+    public function setOrderOfTickets(OrderOfTickets $orderOfTickets)
+    {
+        $this->orderOfTickets = $orderOfTickets;
+        return $this;
+    }
+
+    /**
+     * Get orderOfTickets.
+     *
+     * @return \Louvre\BookingBundle\Entity\OrderOfTickets
+     */
+    public function getOrderOfTickets()
+    {
+        return $this->orderOfTickets;
     }
 }

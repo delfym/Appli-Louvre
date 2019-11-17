@@ -1,0 +1,93 @@
+
+<div class="well form-group">
+
+    {{ form_start(form, {'attr': {'class': 'form-horizontal form-group-row'}}) }}
+
+    {# Les erreurs générales du formulaire. #}
+    {{ form_errors(form) }}
+
+
+    <div class="mb-5 mt-4 myForm" data-path="{{ path('louvre_booking_update') }}" >
+        <div class="form-inline mb-4 p-3 border justify-content-md-center align-baseline available" data-path = "{{ path('louvre_booking_availableTickets') }}">
+            {{ form_label(form.ticketDate, "Date de votre visite",
+                {'label_attr': {'class': 'pr-1 col-lg-2 '}}) }}
+            {{ form_widget(form.ticketDate,
+                {'attr': {'class': 'datepicker mb-2 col-lg-2 col-sm-10 text-center',
+                    'data-date-start-date' : "0d", 'data-date-autoclose' : 'true'
+                }}) }}
+            {{ form_errors(form.ticketDate) }}
+
+            {{ form_label(form.ticketType, "Type de billet",
+                {'label_attr': {'class': 'ml-1 pr-2 col-lg-2'}}) }}
+            {{ form_widget(form.ticketType,
+                {'attr': {'class': 'text-center mb-3 col-lg-2 col-sm-2'}}) }}
+            {{ form_errors(form.ticketType) }}
+
+
+            <!--div class="form-inline mt-5 pb-5 selectQty"-->
+
+            {{ form_label(form.ticketsQuantity, "Nombre de billets souhaités",
+                {'label_attr': {'class': 'selectQuantity ml-1 pr-2 col-lg-3'}}) }}
+            {{ form_widget(form.ticketsQuantity,
+                {'attr': {'id': 'add-ticket'}} ) }}
+            {{ form_errors(form.ticketsQuantity) }}
+
+        </div>
+
+        <ul class="tickets border justify-content-lg-start" data-prototype="{% filter escape %}
+        {% include 'LouvreBookingBundle:Booking:formTicketTemplate.html.twig'
+            with { 'item': form.tickets.vars.prototype } %}{% endfilter %}">
+
+        </ul>
+    </div>
+
+    <div class="border p-3">
+        <h5 class="mb-4 mt-3">Données de facturation</h5>
+
+        <span class="form-inline mb-3 justify-content-md-center justify-content-lg-start">
+
+            {{ form_label(form.visitor.firstName, "Votre prénom",
+                {'label_attr': {'class': 'ml-2 pr-2  col-sm-12 col-lg-2'}}) }}
+            {{ form_errors(form.visitor.firstName) }}
+            {{ form_widget(form.visitor.firstName,
+                {'attr': {'class': 'mb-3 col-lg-3 col-sm-12'}}) }}
+
+            {{ form_label(form.visitor.name, "Votre nom",
+                {'label_attr': {'class': 'ml-1 pr-2  col-sm-12 col-lg-3'}}) }}
+            {{ form_errors(form.visitor.name) }}
+            {{ form_widget(form.visitor.name,
+                {'attr': {'class': 'mb-3 col-lg-3 col-sm-12'}}) }}
+        </span>
+
+        <span class="form-inline mb-3">
+            {{ form_label(form.visitor.birthDate, "Votre date de naissance",
+                {'label_attr': {'class': 'col-sm-12 col-lg-2 justify-content-lg-start'}}) }}
+            {{ form_widget(form.visitor.birthDate,
+                {'attr': {'class': 'col-sm-12 col-lg-4 justify-content-md-center'}}) }}
+            {{ form_errors(form.visitor.birthDate) }}
+
+            {{ form_label(form.visitor.email, "E-mail",
+                {'label_attr': {'class': 'col-lg-2'}}) }}
+            {{ form_widget(form.visitor.email,
+                {'attr': {'class': 'ml-2 col-lg-3 col-sm-12'}}) }}
+            {{ form_errors(form.visitor.email) }}
+        </span>
+
+        <span class="form-inline mb-3">
+            {{ form_label(form.amount, "Montant de votre commande",
+                {'label_attr': {'class': 'ml-2 pr-2 col-lg-2'}}) }}
+            {{ form_errors(form.amount) }}
+            {{ form_widget(form.amount,
+                {'attr': {'class': 'total mb-3 col-lg-3 col-sm-12'}}) }}
+        </span>
+    </div>
+
+    {# Pour le bouton, pas de label ni d'erreur, on affiche juste le widget #}
+    {{ form_widget(form.save, {'attr': {'class': 'btn btn-light m-2'}}) }}
+
+    <a class="btn btn-light" href="{{ path('louvre_booking_home') }}">Retour</a>
+    <div class="invisible">
+        {{ form_rest(form)}}
+        {{ form_end(form) }}
+    </div>
+</div>
